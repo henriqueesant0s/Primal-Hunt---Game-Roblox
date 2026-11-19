@@ -1,44 +1,138 @@
-# 🦖 PRIMAL HUNT
+# 🦖 PRIMAL HUNT — Asymmetric 4v1 Hunting Game
 
-> **4v1 Asymmetric Survival-Horror & Hunting Game on Roblox** (`PlaceId: 81193971554826` · `UniverseId: 10777423056` · Team Create `v149`)  
-> **Pipeline 3D:** Blender 5.3 (`bmesh` + glTF 2.0 + Eevee) → Roblox Open Cloud Assets API → Strict Luau (`--!strict`)
-
-[![Blender 5.3](https://img.shields.io/badge/3D_Pipeline-Blender_5.3-orange)](blender/)
-[![Roblox Studio](https://img.shields.io/badge/Engine-Roblox_Luau_--!strict-blue)](src/)
-[![Assets Approved](https://img.shields.io/badge/Open_Cloud_Assets-Approved-brightgreen)](CHANGELOG_DEVLOG_PRIMAL_HUNT.md)
+> **Inspirado no clássico *Evolve Stage 2*, reinventado no Roblox Studio com pipeline 3D profissional no Blender, animações procedurais e física destrutiva.**
 
 ---
 
-## Principais Recursos Implementados
+## 👥 Equipe de Desenvolvimento & Criação
 
-- **👹 Monstro Colossal Articulado (17 Juntas `Motor6D`, 100 `MeshPart`s):** Escala `22.0` → `29.7` → `38.5` studs entre Estágios 1, 2 e 3 (`1500/800` → `2600/1500` → `4200/2500`), mandíbulas com presas, lâminas de antebraço, garras em gancho, espinhos dorsais, tentáculos com arpões e **Combo M1 de 3 Golpes (`SlashCombo` 1→2→3)**.
-- **💥 Destruição Dinâmica de Cenário (`MonsterDestructionServer`):** O Monstro estilhaça árvores e totens durante ataques/corrida gerando tocos quebrados 3D (`ShatteredTreeStump3D`), toras voadoras (`SplinteredLogChunk3D`), partículas e regeneração em `40s`.
-- **🥚 Evolução Obrigatória no Ninho (`MonsterServer` + `MonsterClient`):** Exige estar dentro de um dos `5` Ninhos Abissais 3D (`<= 34` studs) ao atingir `100%` de energia, com Feixe Localizador (`MonsterNestHomingBeacon`) e casulo de metamorfose de `5s`.
-- **🦎 Ecossistema com 10 Espécies de Fauna 3D Animadas a 60 FPS:**
-  - *Pack v5:* `SwampStalkerRaptor`, `ThornbackBoar`, `BiolumMantisStalker`, `MireCrocoSnapper`, `HornedCeratopsBull`.
-  - *Pack v3:* `RedGoliath`, `CoastalScavenger`, `SporeCrawler`, `AcidSpitterDrake`, `ObsidianCragback`.
-  - Patas calibradas com `ExactGroundY`, `Weld`s rígidos explícitos, `Model:PivotTo` e raycast exclusivo no `Workspace.Terrain` (`54` spawns ativos, 0 animais flutuando).
-- **🧭 Sonar Olfativo Corrigido (`[Q]`):** Ordenação por distância com `18` `Highlight`s + `4` Caçadores (respeitando o limite do Roblox), `10` tags `BillboardGui AlwaysOnTop`, `3` feixes `Beam` (`SonarScentTrail`) até as presas mais próximas e anel expansivo no chão.
-- **🌗 Ciclo Dinâmico de Dia/Noite & Floresta Colorida:** Ciclo completo de 24h a cada `180s` (`DIA DE CAÇA` → `CREPÚSCULO` → `NOITE ABISSAL` → `ALVORADA RUBRA`), lanterna tática automática, visão noturna do Monstro e floresta colorida com copas 3D.
-- **🎬 Diretor de Cutscenes 3D (`CinematicCutsceneDirector`):** Despertar do Monstro, Inserção Orbital de Dropship A.E.M., Metamorfose no Ninho e Morte Súbita / Encerramento.
+O projeto **Primal Hunt** foi concebido e desenvolvido por:
+- **Henrique Santos**
+- **Alan Vinicius**
+- **Thiago Zarotti**
 
 ---
 
-## Estrutura do Repositório
+## 🎯 A Ideia do Projeto: O que é o Primal Hunt?
+
+**Primal Hunt** é um jogo de ação, caça e sobrevivência tática **assimétrica 4v1** construído dentro do ecossistema do **Roblox Studio**, diretamente inspirado na experiência de **Evolve Stage 2**.
+
+O jogo coloca **4 Caçadores especializados** (divididos em classes com papéis estratégicos complementares) contra **1 Monstro Colossal e Cruel** capaz de caçar, se alimentar, evoluir e devastar o ambiente ao seu redor.
+
+### 🔄 O Ciclo de Gameplay (Game Loop):
+1. **O Início da Caçada (Estágio 1 - Presa Furtiva):**
+   O Monstro surge na arena do Estuário frágil, vulnerável e menor (`22 studs` de escala). Seu objetivo inicial é evitar confronto direto com os Caçadores, mover-se em furtividade pela densa vegetação, farejar animais com seu **Sonar Olfativo (`[Q]`)** e devorá-los para acumular energia biológica.
+2. **A Busca dos Caçadores:**
+   Os Caçadores chegam via Dropship orbital. Precisam ler os rastros da floresta — carcaças de animais abatidos, árvores quebradas pelo peso da criatura, ruídos de destruição e pegadas — para encurralar a fera antes que atinja seu ápice evolutivo.
+3. **A Metamorfose no Ninho (Estágio 2):**
+   Diferente de jogos comuns onde a evolução ocorre instantaneamente em qualquer lugar, em *Primal Hunt* o Monstro **precisa retornar a um dos 5 Ninhos Abissais** espalhados pelo mapa para iniciar seu casulo de metamorfose. Durante os 5 segundos de transformação, ele fica vulnerável, criando momentos de extrema tensão e emboscada.
+4. **O Confronto Catastrófico (Estágio 3 - Predador Alfa Colossal):**
+   Ao atingir o Estágio 3 (`38.5 studs`, `4200 HP`, `2500 de Armadura`), os papéis se invertem completamente: o Monstro se torna uma força implacável da natureza com força suficiente para derrubar a floresta, esmagar o Esquadrão e destruir a infraestrutura central.
+
+---
+
+## 🎨 Pipeline 3D Profissional: Blender 5.3 & Procedural Generation
+
+Para garantir qualidade visual, fidelidade anatômica e desempenho que vão muito além dos limites padrão de blocos do Roblox Studio, **toda a base artística 3D foi produzida externamente via Blender 5.3** utilizando scripts procedurais em Python (`bmesh`), geração de malhas otimizadas, rigs esqueléticos e materiais com mapeamento PBR:
+
+1. **O Monstro Colossal (Rig Articulado de 17 Juntas & 100 MeshParts):**
+   - **Anatomia Predatória Ameaçadora:** Mandíbulas duplas com presas internas na faringe, lâminas curvas de executor nos antebraços, garras em gancho superiores/inferiores, placas vertebrais e tentáculos dorsais terminando em arpões biológicos.
+   - **Relação de Escalas e Poder:**
+     - **Estágio 1:** `22.0 studs` (~27.8m) | `1.500 HP` | `800 Armadura`
+     - **Estágio 2:** `29.7 studs` (1.35x) | `2.600 HP` | `1.500 Armadura`
+     - **Estágio 3:** `38.5 studs` (1.75x) | `4.200 HP` | `2.500 Armadura`
+   - **Sistema de Combate M1 (Combo de 3 Golpes - `ClawSlash`):**
+     - *Hit 1:* Corte horizontal direito de alta velocidade.
+     - *Hit 2:* Corte cruzado esquerdo rasgando a armadura.
+     - *Hit 3:* Salto e esmagamento duplo aéreo vertical com impacto sísmico radial e destruição de cenário.
+
+2. **Fauna 3D Viva com 10 Espécies Diferentes:**
+   Modeladas, riggadas e texturizadas no Blender para povoar a cadeia alimentar do mapa, cada uma com comportamentos, velocidade, rendimento de carne e posturas próprias:
+   - **Predadores e Herbívoros do Pack v5:**
+     - `SwampStalkerRaptor` (Bípede ágil estilo raptor)
+     - `ThornbackBoar` (Javali encouraçado com espinhos dorsais)
+     - `BiolumMantisStalker` (Louva-a-deus bioluminescente de emboscada)
+     - `MireCrocoSnapper` (Réptil crocodiliano blindado)
+     - `HornedCeratopsBull` (Megafauna pesada de chifres frontais)
+   - **Predadores e Rastejadores do Pack v3:**
+     - `RedGoliath` (Predador colossal carnívoro de 4 pernas)
+     - `CoastalScavenger` (Carniceiro rápido de carapaça litorânea)
+     - `SporeCrawler` (Insetóide rastejante de esporos)
+     - `AcidSpitterDrake` (Wyrm cuspidor de toxinas corrosivas)
+     - `ObsidianCragback` (Quelônio rochoso de carapaça vulcânica)
+
+3. **Cenário Destrutível & Floresta Orgânica:**
+   - Árvores do estuário e totens foram gerados com copas tridimensionais, galhos poligonais e paletas vibrantes no Blender.
+   - Modelos de troncos quebrados (`ShatteredTreeStump3D`) e lascas de madeira voadoras (`SplinteredLogChunk3D`) gerados para alimentar o motor de física de destruição em tempo real.
+
+---
+
+## ⚙️ Arquitetura de Engenharia no Roblox Studio (Luau `--!strict`)
+
+Todos os sistemas foram programados em Luau estrito, com separação limpa de responsabilidades entre cliente e servidor:
+
+### 🖥️ `ServerScriptService` (Lógica Central, Física & Matchmaking):
+- **`WorldBuilder.server.luau`:** Constrói o ecossistema da arena, gerencia a iluminação volumétrica, a distribuição de ninhos, cavernas e o **Ciclo Dinâmico de Dia e Noite de 180s** (Madrugada, Amanhecer, Dia de Caça, Crepúsculo e Noite Abissal).
+- **`MonsterServer.server.luau`:** Controla a biologia da criatura, detecção de carcaças para alimentação, barra de energia evolutiva, validação de presença no Ninho (`<= 34 studs`) e gatilho de metamorfose.
+- **`MonsterDestructionServer.server.luau`:** Motor de impacto físico. Quando o Monstro usa seu ataque pesado ou corre contra a vegetação, as árvores são partidas em tempo real, gerando toras com impulso físico, partículas e regeneração gradual após 40s.
+- **`PreyManager.luau`:** Gerencia a IA da fauna, rotas de fuga, bandos, alimentação e cálculo de solo por Raycast exclusivo no `Workspace.Terrain` (garantindo que nenhum bicho flutue ou afunde).
+- **`HunterCombatServer.server.luau` & `HunterClassSkills.server.luau`:** Arsenal e habilidades táticas dos Caçadores (Cúpula de Contenção, Arpões de Retenção, Dardo Rastreador, Rifle Antimaterial, Escudos e Ataques Orbitais).
+- **`MatchManager.server.luau`:** Ciclo de partida, transição Lobby → Arena e estados de vitória/derrota.
+
+### 🎮 `StarterPlayer` & `StarterCharacterScripts` (Animações & Experiência):
+- **`MonsterAnimClient.client.luau`:** Controlador cinemático procedural a 60 FPS. Move as 17 juntas em tempo real via `RunService.Stepped`: ondulação de cauda, passadas com peso sísmico, inclinação em curvas, ataque de garras e animações de investida.
+- **`FaunaAnimClient.client.luau`:** Animação procedural dos 10 animais da fauna (movimentação de patas, oscilação de pescoço, alertas e fuga).
+- **`HorrorAtmosphere.client.luau`:** Atmosfera imersiva de terror com névoa densa, vinheta escura, lanterna tática direcional para os Caçadores e visão noturna predatória para o Monstro.
+- **`MonsterClient.client.luau`:** Sistema de Sonar `[Q]` com feixes luminosos guiados por faro (`SonarScentTrail`) até as presas mais próximas e contornos brilhantes (`Highlights`).
+- **`CinematicCutsceneDirector.client.luau`:** Câmeras cinematográficas dinâmicas com interpolação suave para a entrada dos Caçadores, o despertar do Monstro e a metamorfose no ninho.
+- **`TacticalHUD.client.luau`:** Interface tática futurista completa, com bússola, telemetria de saúde/armadura, radar e indicadores de dano.
+
+---
+
+## 🎮 Controles Principais
+
+### Como Monstro:
+| Tecla / Comando | Ação |
+| :--- | :--- |
+| **W, A, S, D** | Movimentação / Andar |
+| **Shift** | Corrida Predatória (Derruba árvores leves) |
+| **Botão Esquerdo (M1)** | Combo de Garras 3-Hit (`ClawSlash` com dano em área) |
+| **E (Segurar)** | Alimentar-se de carcaça / Iniciar evolução (dentro do Ninho) |
+| **Q** | Sonar Olfativo (Destaca presas, carcaças e caçadores próximos) |
+| **Espaço** | Salto e investida vertical |
+
+### Como Caçador:
+| Tecla / Comando | Ação |
+| :--- | :--- |
+| **W, A, S, D** | Movimentação |
+| **Espaço (Segurar)** | Jetpack / Propulsor de elevação |
+| **Botão Esquerdo (M1)** | Disparar arma primária |
+| **Botão Direito (M2)** | Mira telescópica / Zoom tático |
+| **1, 2, 3, 4** | Seleção de armas, armadilhas e gadgets de classe |
+| **F** | Lanterna Tática de alta intensidade |
+
+---
+
+## 📂 Estrutura do Repositório
 
 ```text
-├── README.md
-├── CHANGELOG_DEVLOG_PRIMAL_HUNT.md     # Notas completas para Discord & Histórico técnico
-├── export_luau_scripts_for_github.py   # Extrator dos scripts Luau da sessão
-├── blender/                            # Scripts Python/Blender de geração 3D (.glb + previews)
-├── blender_mcp/                        # Bridge MCP usada com o Blender 5.3
-├── previews/                           # Renders Eevee dos modelos gerados no Blender
-├── roblox_scripts/                     # Scripts Luau (--!strict) exportados do Roblox Studio
-│   ├── ServerScriptService/
-│   └── StarterPlayer/
-│       ├── StarterPlayerScripts/
-│       └── StarterCharacterScripts/
-└── *_manifest*.json / *_assets*.json   # Manifests de juntas/pivôs e Asset IDs no Open Cloud
+├── README.md                                  # Documento oficial do projeto e visão de jogo
+├── CHANGELOG_DEVLOG_PRIMAL_HUNT.md            # Devlog detalhado e notas para a comunidade
+├── blender/                                   # Scripts de modelagem procedural, rigs e exportação (.py)
+│   ├── build_colossal_monster_trees_and_destruction_v4.py
+│   ├── build_cruel_monster_fauna_and_nest_v3.py
+│   ├── build_diverse_fauna_pack_v5.py
+│   └── ...
+├── previews/                                  # Renders em alta qualidade dos modelos e cenas 3D
+├── roblox_scripts/                            # Código-fonte oficial em Luau (--!strict)
+│   ├── ServerScriptService/                   # Lógica de servidor, IAs, física e economia
+│   └── StarterPlayer/                         # Clientes, HUD tática, animações e cutscenes
+├── textures/                                  # Texturas PBR e mapeamentos utilizados
+└── *.json                                     # Manifestos técnicos de juntas, pivôs e IDs do Open Cloud
 ```
 
-Veja os detalhes completos, renders, diagramas e IDs de assets em [`CHANGELOG_DEVLOG_PRIMAL_HUNT.md`](CHANGELOG_DEVLOG_PRIMAL_HUNT.md).
+---
+
+<p align="center">
+  <b>Primal Hunt © 2026</b> — Criado por <b>Henrique Santos</b>, <b>Alan Vinicius</b> e <b>Thiago Zarotti</b>.
+</p>

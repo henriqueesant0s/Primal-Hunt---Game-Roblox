@@ -1,7 +1,8 @@
 # PRIMAL HUNT — Devlog Completo & Documentação Técnica (Discord + GitHub)
 
 > **Projeto:** `PRIMAL HUNT` (`PlaceId: 81193971554826` · `UniverseId: 10777423056` · Roblox Team Create `v149`)  
-> **Gênero:** 4v1 Assimétrico · Sobrevivência, Caça & Terror Tático  
+> **Desenvolvedores:** Henrique Santos, Alan Vinicius e Thiago Zarotti  
+> **Inspiração:** *Evolve Stage 2* (4v1 Assimétrico · Sobrevivência, Caça & Terror Tático)  
 > **Pipeline:** Blender 5.3 (`bmesh` + glTF 2.0 + Eevee) → Roblox Open Cloud Assets API → Luau (`--!strict`)
 
 ---
@@ -11,7 +12,9 @@
 ```markdown
 # 🦖 PRIMAL HUNT — MEGA UPDATE: MONSTRO COLOSSAL, DESTRUIÇÃO, 10 ESPÉCIES DE FAUNA & CICLO DIA/NOITE!
 
-Saíram as maiores melhorias de **3D, animação, ambientação e gameplay** até agora no projeto **PRIMAL HUNT**! Confere tudo que entrou no jogo:
+Fala pessoal! O projeto **PRIMAL HUNT**, desenvolvido por **Henrique Santos, Alan Vinicius e Thiago Zarotti** inspirado no clássico **Evolve Stage 2**, acaba de receber a maior atualização técnica e visual até o momento!
+
+Confira tudo que foi implementado diretamente no Roblox Studio com pipeline 3D e animação feitos no Blender:
 
 ### 🏛️ Lobby 3D & Testabilidade
 - Novo **Lobby 3D Completo** modelado no Blender com o Monstro como peça central de contenção e **4 plataformas individuais de classes** para os Caçadores (`Assault`, `Trapper`, `Medic`, `Support`).

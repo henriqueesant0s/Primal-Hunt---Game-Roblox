@@ -2,6 +2,14 @@
 
 > **Inspirado no clássico *Evolve Stage 2*, reinventado no Roblox Studio com pipeline 3D profissional no Blender, animações procedurais e física destrutiva.**
 
+[![Status: Em Desenvolvimento](https://img.shields.io/badge/Status-EM_DESENVOLVIMENTO_ATIVO_(WIP)-yellow?style=for-the-badge&logo=roblox)](https://github.com/henriqueesant0s/Primal-Hunt---Game-Roblox)
+[![Engine: Roblox Studio](https://img.shields.io/badge/Engine-Roblox_Studio_Luau-blue?style=for-the-badge&logo=roblox)](roblox_scripts/)
+[![Pipeline: Blender 5.3](https://img.shields.io/badge/3D_Pipeline-Blender_5.3-orange?style=for-the-badge&logo=blender)](blender/)
+
+> ⚠️ **AVISO DE DESENVOLVIMENTO ATIVO (Pre-Alpha / Work-in-Progress):**  
+> Este jogo está atualmente **em fase ativa de desenvolvimento** por **Henrique Santos**, **Alan Vinicius** e **Thiago Zarotti**.  
+> Diversos sistemas, mecânicas de caça, balanceamento, malhas 3D no Blender e polimentos de animações e sonorização continuam sendo constantemente criados, testados e iterados.
+
 ---
 
 ## 👥 Equipe de Desenvolvimento & Criação
@@ -134,5 +142,6 @@ Todos os sistemas foram programados em Luau estrito, com separação limpa de re
 ---
 
 <p align="center">
-  <b>Primal Hunt © 2026</b> — Criado por <b>Henrique Santos</b>, <b>Alan Vinicius</b> e <b>Thiago Zarotti</b>.
+  <b>Primal Hunt © 2026</b> — Desenvolvido por <b>Henrique Santos</b>, <b>Alan Vinicius</b> e <b>Thiago Zarotti</b>.<br>
+  <i>Projeto em desenvolvimento ativo (Work In Progress). Todos os direitos reservados.</i>
 </p>

@@ -1,14 +1,25 @@
-# 🦖 PRIMAL HUNT — Asymmetric 4v1 Hunting Game
+<div align="center">
 
-> **Inspirado no clássico *Evolve Stage 2*, reinventado no Roblox Studio com pipeline 3D profissional no Blender, animações procedurais e física destrutiva.**
+# 🦖 PRIMAL HUNT
+### 4v1 Asymmetric Hunting & Survival-Horror Game
 
-[![Status: Em Desenvolvimento](https://img.shields.io/badge/Status-EM_DESENVOLVIMENTO_ATIVO_(WIP)-yellow?style=for-the-badge&logo=roblox)](https://github.com/henriqueesant0s/Primal-Hunt---Game-Roblox)
-[![Engine: Roblox Studio](https://img.shields.io/badge/Engine-Roblox_Studio_Luau-blue?style=for-the-badge&logo=roblox)](roblox_scripts/)
-[![Pipeline: Blender 5.3](https://img.shields.io/badge/3D_Pipeline-Blender_5.3-orange?style=for-the-badge&logo=blender)](blender/)
+*Inspirado no clássico **Evolve Stage 2**, desenvolvido no **Roblox Studio** com pipeline 3D profissional no **Blender 5.3**, animações procedurais e física destrutiva.*
 
-> ⚠️ **AVISO DE DESENVOLVIMENTO ATIVO (Pre-Alpha / Work-in-Progress):**  
-> Este jogo está atualmente **em fase ativa de desenvolvimento** por **Henrique Santos**, **Alan Vinicius** e **Thiago Zarotti**.  
-> Diversos sistemas, mecânicas de caça, balanceamento, malhas 3D no Blender e polimentos de animações e sonorização continuam sendo constantemente criados, testados e iterados.
+<br/>
+
+[![Status: Em Desenvolvimento](https://img.shields.io/badge/Status-Em_Desenvolvimento_(WIP)-f1c40f?logo=git)](https://github.com/henriqueesant0s/Primal-Hunt---Game-Roblox)
+[![Engine: Roblox Studio](https://img.shields.io/badge/Engine-Roblox_Studio_Luau-00a2ff?logo=roblox)](roblox_scripts/)
+[![Pipeline: Blender 5.3](https://img.shields.io/badge/3D_Pipeline-Blender_5.3-ea7600?logo=blender)](blender/)
+[![Gênero](https://img.shields.io/badge/G%C3%AAnero-4v1_Assim%C3%A9trico-e74c3c)]()
+
+<br/>
+
+</div>
+
+> [!WARNING]
+> **PROJETO EM DESENVOLVIMENTO ATIVO (Pre-Alpha / Work-in-Progress):**  
+> Este jogo está sendo desenvolvido ativamente por **Henrique Santos**, **Alan Vinicius** e **Thiago Zarotti**.  
+> Mecânicas de caça assimétrica, balanceamento das 4 classes de caçadores, malhas 3D e rigs esqueléticos no Blender, áudio e iluminação continuam em constante expansão e aprimoramento.
 
 ---
 

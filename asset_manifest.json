@@ -1,0 +1,227 @@
+{
+  "project": "PRIMAL HUNT",
+  "kits": [
+    {
+      "kitName": "PrimalHunt_TreesKit",
+      "category": "Trees",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\PrimalHunt_TreesKit.glb",
+      "meshCount": 6,
+      "asymmetricFeatures": [
+        "Tall tree leans toward +X with longer primary limb on +X",
+        "Broad tree root flare asymmetric toward +X/+Y"
+      ],
+      "models": [
+        {
+          "modelName": "CanopyTree_Tall",
+          "category": "Trees",
+          "parts": [
+            "CanopyTree_Tall__Trunk",
+            "CanopyTree_Tall__Canopy"
+          ],
+          "triangles": 700,
+          "dimensionsMeters": [
+            7.862,
+            7.611,
+            10.659
+          ],
+          "expectedHeightStuds": 38.068
+        },
+        {
+          "modelName": "CanopyTree_Broad",
+          "category": "Trees",
+          "parts": [
+            "CanopyTree_Broad__Trunk",
+            "CanopyTree_Broad__Canopy"
+          ],
+          "triangles": 572,
+          "dimensionsMeters": [
+            9.196,
+            8.271,
+            9.574
+          ],
+          "expectedHeightStuds": 34.193
+        },
+        {
+          "modelName": "MidstoryTree_Crooked",
+          "category": "Trees",
+          "parts": [
+            "MidstoryTree_Crooked__Trunk",
+            "MidstoryTree_Crooked__Canopy"
+          ],
+          "triangles": 324,
+          "dimensionsMeters": [
+            4.576,
+            3.579,
+            4.505
+          ],
+          "expectedHeightStuds": 16.088
+        }
+      ]
+    },
+    {
+      "kitName": "PrimalHunt_RocksKit",
+      "category": "Rocks",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\PrimalHunt_RocksKit.glb",
+      "meshCount": 3,
+      "asymmetricFeatures": [
+        "BasaltFaultSpire stepped perch shoulder sits on +X side",
+        "VolcanicCliffSlab leans toward +X/-Y fault plane"
+      ],
+      "models": [
+        {
+          "modelName": "BasaltFaultSpire",
+          "category": "Rocks",
+          "parts": [
+            "BasaltFaultSpire__Rock"
+          ],
+          "triangles": 254,
+          "dimensionsMeters": [
+            8.056,
+            5.243,
+            12.99
+          ],
+          "expectedHeightStuds": 46.391
+        },
+        {
+          "modelName": "VolcanicCliffSlab",
+          "category": "Rocks",
+          "parts": [
+            "VolcanicCliffSlab__Rock"
+          ],
+          "triangles": 174,
+          "dimensionsMeters": [
+            7.506,
+            6.887,
+            9.312
+          ],
+          "expectedHeightStuds": 33.256
+        },
+        {
+          "modelName": "CalderaBoulderGroup",
+          "category": "Rocks",
+          "parts": [
+            "CalderaBoulderGroup__Rock"
+          ],
+          "triangles": 240,
+          "dimensionsMeters": [
+            4.442,
+            3.359,
+            2.24
+          ],
+          "expectedHeightStuds": 7.999
+        }
+      ]
+    },
+    {
+      "kitName": "PrimalHunt_FoliageKit",
+      "category": "Foliage",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\PrimalHunt_FoliageKit.glb",
+      "meshCount": 3,
+      "asymmetricFeatures": [
+        "FallenHollowLog wider root flare at -X and tapered splinter at +X",
+        "ButtressRootArch arches slightly toward +Y"
+      ],
+      "models": [
+        {
+          "modelName": "ButtressRootArch",
+          "category": "Foliage",
+          "parts": [
+            "ButtressRootArch__Root"
+          ],
+          "triangles": 66,
+          "dimensionsMeters": [
+            5.754,
+            1.465,
+            3.012
+          ],
+          "expectedHeightStuds": 10.757
+        },
+        {
+          "modelName": "VolcanicFernCluster",
+          "category": "Foliage",
+          "parts": [
+            "VolcanicFernCluster__Foliage"
+          ],
+          "triangles": 196,
+          "dimensionsMeters": [
+            2.997,
+            3.864,
+            1.117
+          ],
+          "expectedHeightStuds": 3.988
+        },
+        {
+          "modelName": "FallenHollowLog",
+          "category": "Foliage",
+          "parts": [
+            "FallenHollowLog__Log"
+          ],
+          "triangles": 60,
+          "dimensionsMeters": [
+            3.495,
+            1.235,
+            1.19
+          ],
+          "expectedHeightStuds": 4.252
+        }
+      ]
+    },
+    {
+      "kitName": "PrimalHunt_RuinsKit",
+      "category": "Ruins",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\PrimalHunt_RuinsKit.glb",
+      "meshCount": 6,
+      "asymmetricFeatures": [
+        "BrokenBlastBarrier sheared wall missing on -X exposing bent rebar",
+        "AbandonedSurveyRig antenna mast sits on +X"
+      ],
+      "models": [
+        {
+          "modelName": "AdutoraPipeSaddle",
+          "category": "Ruins",
+          "parts": [
+            "AdutoraPipeSaddle__Concrete",
+            "AdutoraPipeSaddle__Pipe"
+          ],
+          "triangles": 224,
+          "dimensionsMeters": [
+            4.4,
+            2.36,
+            4.78
+          ],
+          "expectedHeightStuds": 17.071
+        },
+        {
+          "modelName": "BrokenBlastBarrier",
+          "category": "Ruins",
+          "parts": [
+            "BrokenBlastBarrier__Concrete",
+            "BrokenBlastBarrier__Rebar"
+          ],
+          "triangles": 84,
+          "dimensionsMeters": [
+            3.6,
+            1.4,
+            3.284
+          ],
+          "expectedHeightStuds": 11.728
+        },
+        {
+          "modelName": "AbandonedSurveyRig",
+          "category": "Ruins",
+          "parts": [
+            "AbandonedSurveyRig__Housing",
+            "AbandonedSurveyRig__Antenna"
+          ],
+          "triangles": 68,
+          "dimensionsMeters": [
+            2.1,
+            1.6,
+            2.808
+          ],
+          "expectedHeightStuds": 10.028
+        }
+      ]
+    }
+  ]
+}

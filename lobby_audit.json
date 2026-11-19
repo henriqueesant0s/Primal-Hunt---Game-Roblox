@@ -1,0 +1,17 @@
+{
+  "totalMeshObjects": 155,
+  "totalTriangles": 43848,
+  "heaviestObject": "Obs_ParapetAndGuardrail",
+  "heaviestTriangles": 1240,
+  "negativeScaleObjects": [],
+  "emptyMeshes": [],
+  "over8000Budget": [],
+  "blendPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\OrbitalDropshipLobby.blend",
+  "fbxPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\OrbitalDropshipLobby.fbx",
+  "previews": [
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\lobby_view_1.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\lobby_view_2.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\lobby_view_3.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\lobby_view_4.png"
+  ]
+}

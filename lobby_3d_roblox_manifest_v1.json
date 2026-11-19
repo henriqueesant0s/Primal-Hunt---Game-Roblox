@@ -1,0 +1,976 @@
+{
+  "project": "PRIMAL HUNT",
+  "version": "v1",
+  "studsPerMeter": 3.571428571428571,
+  "lobbyOrigin": [
+    0,
+    600,
+    0
+  ],
+  "classPlacementsRoblox": [
+    {
+      "role": "Assault",
+      "bx": -16.0,
+      "by": -21.0,
+      "rx": -16.0,
+      "rz": 21.0,
+      "accent": [
+        0.9,
+        0.85,
+        0.72
+      ]
+    },
+    {
+      "role": "Trapper",
+      "bx": -23.5,
+      "by": -11.0,
+      "rx": -23.5,
+      "rz": 11.0,
+      "accent": [
+        1.0,
+        0.69,
+        0.0
+      ]
+    },
+    {
+      "role": "Medic",
+      "bx": 16.0,
+      "by": -21.0,
+      "rx": 16.0,
+      "rz": 21.0,
+      "accent": [
+        0.22,
+        1.0,
+        0.08
+      ]
+    },
+    {
+      "role": "Support",
+      "bx": 23.5,
+      "by": -11.0,
+      "rx": 23.5,
+      "rz": 11.0,
+      "accent": [
+        0.0,
+        0.9,
+        1.0
+      ]
+    }
+  ],
+  "packs": {
+    "hangar": {
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_HangarArchitecture_v1.glb",
+      "meshCount": 31,
+      "totalTriangles": 40168,
+      "heaviestMesh": "Hangar_Floor_Grating",
+      "heaviestTriangles": 9856,
+      "meshes": [
+        {
+          "name": "Hangar_Ceiling_ArmorGrey",
+          "tris": 1320,
+          "loc_studs": [
+            0.0,
+            0.0,
+            16.08
+          ]
+        },
+        {
+          "name": "Hangar_Ceiling_DarkSteel",
+          "tris": 1924,
+          "loc_studs": [
+            0.0,
+            0.0,
+            16.152
+          ]
+        },
+        {
+          "name": "Hangar_Ceiling_HazardYellow",
+          "tris": 308,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Hangar_Ceiling_NeonCyan",
+          "tris": 36,
+          "loc_studs": [
+            0.0,
+            0.0,
+            33.071
+          ]
+        },
+        {
+          "name": "Hangar_CenterDais_DarkSteel",
+          "tris": 808,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.311
+          ]
+        },
+        {
+          "name": "Hangar_CenterDais_HazardYellow",
+          "tris": 544,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.571
+          ]
+        },
+        {
+          "name": "Hangar_EastGen_DarkSteel",
+          "tris": 952,
+          "loc_studs": [
+            45.714,
+            0.0,
+            7.107
+          ]
+        },
+        {
+          "name": "Hangar_EastGen_Grating",
+          "tris": 1200,
+          "loc_studs": [
+            40.285,
+            0.0,
+            1.014
+          ]
+        },
+        {
+          "name": "Hangar_EastGen_NeonAmber",
+          "tris": 124,
+          "loc_studs": [
+            42.054,
+            0.0,
+            10.0
+          ]
+        },
+        {
+          "name": "Hangar_EastWall_ArmorGrey",
+          "tris": 3784,
+          "loc_studs": [
+            24.516,
+            -0.893,
+            8.828
+          ]
+        },
+        {
+          "name": "Hangar_EastWall_DarkSteel",
+          "tris": 792,
+          "loc_studs": [
+            25.403,
+            0.0,
+            17.165
+          ]
+        },
+        {
+          "name": "Hangar_EastWall_NeonCyan",
+          "tris": 48,
+          "loc_studs": [
+            48.5,
+            0.0,
+            17.5
+          ]
+        },
+        {
+          "name": "Hangar_Floor_ArmorGrey",
+          "tris": 3652,
+          "loc_studs": [
+            -1.25,
+            0.0,
+            -0.672
+          ]
+        },
+        {
+          "name": "Hangar_Floor_DarkSteel",
+          "tris": 264,
+          "loc_studs": [
+            0.0,
+            0.0,
+            -1.661
+          ]
+        },
+        {
+          "name": "Hangar_Floor_Grating",
+          "tris": 9856,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Hangar_Floor_NeonAmber",
+          "tris": 24,
+          "loc_studs": [
+            1.5,
+            0.0,
+            -1.857
+          ]
+        },
+        {
+          "name": "Hangar_NorthObs_ArmorGrey",
+          "tris": 1240,
+          "loc_studs": [
+            0.0,
+            55.392,
+            2.001
+          ]
+        },
+        {
+          "name": "Hangar_NorthObs_DarkSteel",
+          "tris": 808,
+          "loc_studs": [
+            0.0,
+            32.071,
+            8.438
+          ]
+        },
+        {
+          "name": "Hangar_NorthObs_Glass",
+          "tris": 72,
+          "loc_studs": [
+            0.0,
+            61.5,
+            17.679
+          ]
+        },
+        {
+          "name": "Hangar_NorthObs_NeonCyan",
+          "tris": 48,
+          "loc_studs": [
+            0.0,
+            55.893,
+            3.429
+          ]
+        },
+        {
+          "name": "Hangar_SouthAirlock_ArmorGrey",
+          "tris": 1264,
+          "loc_studs": [
+            0.0,
+            -28.522,
+            1.371
+          ]
+        },
+        {
+          "name": "Hangar_SouthAirlock_DarkSteel",
+          "tris": 1020,
+          "loc_studs": [
+            0.0,
+            -29.455,
+            8.705
+          ]
+        },
+        {
+          "name": "Hangar_SouthAirlock_HazardYellow",
+          "tris": 44,
+          "loc_studs": [
+            0.0,
+            -56.25,
+            0.107
+          ]
+        },
+        {
+          "name": "Hangar_SouthAirlock_NeonAmber",
+          "tris": 36,
+          "loc_studs": [
+            0.0,
+            -57.929,
+            21.848
+          ]
+        },
+        {
+          "name": "Hangar_WestBays_ArmorGrey",
+          "tris": 1056,
+          "loc_studs": [
+            0.912,
+            0.0,
+            9.494
+          ]
+        },
+        {
+          "name": "Hangar_WestBays_DarkSteel",
+          "tris": 4212,
+          "loc_studs": [
+            -48.759,
+            -0.116,
+            8.014
+          ]
+        },
+        {
+          "name": "Hangar_WestBays_NeonCyan",
+          "tris": 96,
+          "loc_studs": [
+            -47.149,
+            0.0,
+            11.017
+          ]
+        },
+        {
+          "name": "Hangar_WestWall_ArmorGrey",
+          "tris": 3784,
+          "loc_studs": [
+            -24.516,
+            -0.893,
+            8.828
+          ]
+        },
+        {
+          "name": "Hangar_WestWall_DarkSteel",
+          "tris": 792,
+          "loc_studs": [
+            -25.403,
+            0.0,
+            17.165
+          ]
+        },
+        {
+          "name": "Hangar_WestWall_NeonCyan",
+          "tris": 48,
+          "loc_studs": [
+            -48.5,
+            0.0,
+            17.5
+          ]
+        },
+        {
+          "name": "ORIGIN_MARKER",
+          "tris": 12,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    "monster": {
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_MonsterCenterpiece_v1.glb",
+      "meshCount": 16,
+      "totalTriangles": 33052,
+      "heaviestMesh": "Monster3D_ObsidianPlates",
+      "heaviestTriangles": 11147,
+      "meshes": [
+        {
+          "name": "MonsterStage_DarkSteel",
+          "tris": 60,
+          "loc_studs": [
+            0.0,
+            0.0,
+            2.156
+          ]
+        },
+        {
+          "name": "MonsterStage_HeavyArmor",
+          "tris": 28,
+          "loc_studs": [
+            0.0,
+            0.0,
+            2.544
+          ]
+        },
+        {
+          "name": "MonsterStage_HazardYellow",
+          "tris": 240,
+          "loc_studs": [
+            0.0,
+            0.0,
+            2.21
+          ]
+        },
+        {
+          "name": "MonsterStage_NeonAccent",
+          "tris": 16,
+          "loc_studs": [
+            0.0,
+            0.0,
+            2.556
+          ]
+        },
+        {
+          "name": "MonsterStage_Pylons_DarkSteel",
+          "tris": 240,
+          "loc_studs": [
+            0.0,
+            0.0,
+            3.982
+          ]
+        },
+        {
+          "name": "MonsterStage_Pylons_HazardYellow",
+          "tris": 48,
+          "loc_studs": [
+            0.0,
+            -0.0,
+            4.882
+          ]
+        },
+        {
+          "name": "MonsterStage_Pylons_NeonCrimson",
+          "tris": 48,
+          "loc_studs": [
+            -0.0,
+            0.0,
+            4.032
+          ]
+        },
+        {
+          "name": "CentralTerminal_DarkSteel",
+          "tris": 36,
+          "loc_studs": [
+            0.0,
+            -27.5,
+            2.031
+          ]
+        },
+        {
+          "name": "CentralTerminal_HazardYellow",
+          "tris": 12,
+          "loc_studs": [
+            0.0,
+            -29.15,
+            0.48
+          ]
+        },
+        {
+          "name": "CentralTerminal_NeonScreen",
+          "tris": 12,
+          "loc_studs": [
+            0.0,
+            -27.55,
+            3.55
+          ]
+        },
+        {
+          "name": "Monster3D_VoidFlesh",
+          "tris": 9846,
+          "loc_studs": [
+            0.021,
+            0.827,
+            7.839
+          ]
+        },
+        {
+          "name": "Monster3D_ObsidianPlates",
+          "tris": 11147,
+          "loc_studs": [
+            -0.06,
+            0.915,
+            13.834
+          ]
+        },
+        {
+          "name": "Monster3D_RibcageAndShackles",
+          "tris": 7520,
+          "loc_studs": [
+            0.0,
+            0.167,
+            11.448
+          ]
+        },
+        {
+          "name": "Monster3D_BoneClawsAndTeeth",
+          "tris": 840,
+          "loc_studs": [
+            0.001,
+            -0.729,
+            7.707
+          ]
+        },
+        {
+          "name": "Monster3D_SolarFurnace_Neon",
+          "tris": 2947,
+          "loc_studs": [
+            0.0,
+            -0.379,
+            12.518
+          ]
+        },
+        {
+          "name": "ORIGIN_MARKER",
+          "tris": 12,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    "classes": {
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_ClassBasesAndHunters_v1.glb",
+      "meshCount": 51,
+      "totalTriangles": 13776,
+      "heaviestMesh": "Hunter3D_Trapper_Hair",
+      "heaviestTriangles": 1184,
+      "meshes": [
+        {
+          "name": "ClassBase_Assault_DarkSteel",
+          "tris": 60,
+          "loc_studs": [
+            -16.0,
+            -21.0,
+            0.374
+          ]
+        },
+        {
+          "name": "ClassBase_Assault_HeavyArmor",
+          "tris": 28,
+          "loc_studs": [
+            -16.0,
+            -21.0,
+            0.716
+          ]
+        },
+        {
+          "name": "ClassBase_Assault_HazardYellow",
+          "tris": 240,
+          "loc_studs": [
+            -16.0,
+            -21.0,
+            0.421
+          ]
+        },
+        {
+          "name": "ClassBase_Assault_NeonAccent",
+          "tris": 16,
+          "loc_studs": [
+            -16.0,
+            -21.0,
+            0.727
+          ]
+        },
+        {
+          "name": "ClassPlaque_Assault_DarkSteel",
+          "tris": 36,
+          "loc_studs": [
+            -13.134,
+            -24.404,
+            1.51
+          ]
+        },
+        {
+          "name": "ClassPlaque_Assault_HazardYellow",
+          "tris": 12,
+          "loc_studs": [
+            -12.76,
+            -24.848,
+            0.4
+          ]
+        },
+        {
+          "name": "ClassPlaque_Assault_Screen",
+          "tris": 12,
+          "loc_studs": [
+            -13.069,
+            -24.48,
+            2.84
+          ]
+        },
+        {
+          "name": "Hunter3D_Assault_WeaponSteel",
+          "tris": 64,
+          "loc_studs": [
+            -17.524,
+            -20.588,
+            2.038
+          ]
+        },
+        {
+          "name": "Hunter3D_Assault_WeaponNeon",
+          "tris": 40,
+          "loc_studs": [
+            -17.091,
+            -20.835,
+            1.309
+          ]
+        },
+        {
+          "name": "ClassBase_Trapper_DarkSteel",
+          "tris": 60,
+          "loc_studs": [
+            -23.5,
+            -11.0,
+            0.374
+          ]
+        },
+        {
+          "name": "ClassBase_Trapper_HeavyArmor",
+          "tris": 28,
+          "loc_studs": [
+            -23.5,
+            -11.0,
+            0.716
+          ]
+        },
+        {
+          "name": "ClassBase_Trapper_HazardYellow",
+          "tris": 240,
+          "loc_studs": [
+            -23.5,
+            -11.0,
+            0.421
+          ]
+        },
+        {
+          "name": "ClassBase_Trapper_NeonAccent",
+          "tris": 16,
+          "loc_studs": [
+            -23.5,
+            -11.0,
+            0.727
+          ]
+        },
+        {
+          "name": "ClassPlaque_Trapper_DarkSteel",
+          "tris": 36,
+          "loc_studs": [
+            -20.698,
+            -14.457,
+            1.51
+          ]
+        },
+        {
+          "name": "ClassPlaque_Trapper_HazardYellow",
+          "tris": 12,
+          "loc_studs": [
+            -20.333,
+            -14.908,
+            0.4
+          ]
+        },
+        {
+          "name": "ClassPlaque_Trapper_Screen",
+          "tris": 12,
+          "loc_studs": [
+            -20.635,
+            -14.535,
+            2.84
+          ]
+        },
+        {
+          "name": "Hunter3D_Trapper_Skin",
+          "tris": 944,
+          "loc_studs": [
+            -24.181,
+            -10.103,
+            5.516
+          ]
+        },
+        {
+          "name": "Hunter3D_Trapper_Hair",
+          "tris": 1184,
+          "loc_studs": [
+            -23.259,
+            -11.388,
+            6.32
+          ]
+        },
+        {
+          "name": "Hunter3D_Trapper_Cloth",
+          "tris": 876,
+          "loc_studs": [
+            -23.591,
+            -10.953,
+            4.013
+          ]
+        },
+        {
+          "name": "Hunter3D_Trapper_Armor",
+          "tris": 196,
+          "loc_studs": [
+            -24.21,
+            -10.482,
+            3.873
+          ]
+        },
+        {
+          "name": "Hunter3D_Trapper_DarkSteel",
+          "tris": 628,
+          "loc_studs": [
+            -24.683,
+            -10.499,
+            4.339
+          ]
+        },
+        {
+          "name": "Hunter3D_Trapper_NeonAccent",
+          "tris": 284,
+          "loc_studs": [
+            -24.88,
+            -10.949,
+            4.511
+          ]
+        },
+        {
+          "name": "ClassBase_Medic_DarkSteel",
+          "tris": 60,
+          "loc_studs": [
+            16.0,
+            -21.0,
+            0.374
+          ]
+        },
+        {
+          "name": "ClassBase_Medic_HeavyArmor",
+          "tris": 28,
+          "loc_studs": [
+            16.0,
+            -21.0,
+            0.716
+          ]
+        },
+        {
+          "name": "ClassBase_Medic_HazardYellow",
+          "tris": 240,
+          "loc_studs": [
+            16.0,
+            -21.0,
+            0.421
+          ]
+        },
+        {
+          "name": "ClassBase_Medic_NeonAccent",
+          "tris": 16,
+          "loc_studs": [
+            16.0,
+            -21.0,
+            0.727
+          ]
+        },
+        {
+          "name": "ClassPlaque_Medic_DarkSteel",
+          "tris": 36,
+          "loc_studs": [
+            13.134,
+            -24.404,
+            1.51
+          ]
+        },
+        {
+          "name": "ClassPlaque_Medic_HazardYellow",
+          "tris": 12,
+          "loc_studs": [
+            12.76,
+            -24.848,
+            0.4
+          ]
+        },
+        {
+          "name": "ClassPlaque_Medic_Screen",
+          "tris": 12,
+          "loc_studs": [
+            13.069,
+            -24.48,
+            2.84
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_Skin",
+          "tris": 944,
+          "loc_studs": [
+            16.802,
+            -19.947,
+            5.087
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_Hair",
+          "tris": 1184,
+          "loc_studs": [
+            15.939,
+            -21.022,
+            6.371
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_Cloth",
+          "tris": 864,
+          "loc_studs": [
+            16.141,
+            -20.769,
+            3.473
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_Armor",
+          "tris": 208,
+          "loc_studs": [
+            16.111,
+            -20.559,
+            3.999
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_DarkSteel",
+          "tris": 604,
+          "loc_studs": [
+            16.724,
+            -20.059,
+            3.465
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_VisorGlass",
+          "tris": 12,
+          "loc_studs": [
+            15.437,
+            -21.623,
+            6.4
+          ]
+        },
+        {
+          "name": "Hunter3D_Medic_NeonAccent",
+          "tris": 212,
+          "loc_studs": [
+            16.761,
+            -19.908,
+            4.082
+          ]
+        },
+        {
+          "name": "ClassBase_Support_DarkSteel",
+          "tris": 60,
+          "loc_studs": [
+            23.5,
+            -11.0,
+            0.374
+          ]
+        },
+        {
+          "name": "ClassBase_Support_HeavyArmor",
+          "tris": 28,
+          "loc_studs": [
+            23.5,
+            -11.0,
+            0.716
+          ]
+        },
+        {
+          "name": "ClassBase_Support_HazardYellow",
+          "tris": 240,
+          "loc_studs": [
+            23.5,
+            -11.0,
+            0.421
+          ]
+        },
+        {
+          "name": "ClassBase_Support_NeonAccent",
+          "tris": 16,
+          "loc_studs": [
+            23.5,
+            -11.0,
+            0.727
+          ]
+        },
+        {
+          "name": "ClassPlaque_Support_DarkSteel",
+          "tris": 36,
+          "loc_studs": [
+            20.698,
+            -14.457,
+            1.51
+          ]
+        },
+        {
+          "name": "ClassPlaque_Support_HazardYellow",
+          "tris": 12,
+          "loc_studs": [
+            20.333,
+            -14.908,
+            0.4
+          ]
+        },
+        {
+          "name": "ClassPlaque_Support_Screen",
+          "tris": 12,
+          "loc_studs": [
+            20.635,
+            -14.535,
+            2.84
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_Skin",
+          "tris": 944,
+          "loc_studs": [
+            24.44,
+            -10.132,
+            5.567
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_Hair",
+          "tris": 1184,
+          "loc_studs": [
+            23.313,
+            -11.227,
+            6.339
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_Cloth",
+          "tris": 864,
+          "loc_studs": [
+            23.694,
+            -10.885,
+            3.411
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_Armor",
+          "tris": 168,
+          "loc_studs": [
+            23.563,
+            -10.239,
+            4.224
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_DarkSteel",
+          "tris": 628,
+          "loc_studs": [
+            23.926,
+            -10.107,
+            3.951
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_VisorGlass",
+          "tris": 12,
+          "loc_studs": [
+            22.83,
+            -11.803,
+            6.252
+          ]
+        },
+        {
+          "name": "Hunter3D_Support_NeonAccent",
+          "tris": 104,
+          "loc_studs": [
+            23.792,
+            -9.711,
+            4.42
+          ]
+        },
+        {
+          "name": "ORIGIN_MARKER",
+          "tris": 12,
+          "loc_studs": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  },
+  "assemblyBlend": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_CompleteAssembly_v1.blend",
+  "previews": [
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\lobby3d_assembly_view_1.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\lobby3d_assembly_view_2.png"
+  ]
+}

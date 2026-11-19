@@ -1,0 +1,874 @@
+{
+  "monster": {
+    "stage1HeightStuds": 22.0,
+    "jointPivots": {
+      "Pelvis": [
+        0.001,
+        7.3014,
+        -0.3296
+      ],
+      "Chest": [
+        0.001,
+        10.3364,
+        -0.4574
+      ],
+      "Head": [
+        0.001,
+        15.2884,
+        -0.8407
+      ],
+      "CrownL": [
+        -1.3276,
+        16.5475,
+        -0.8285
+      ],
+      "CrownR": [
+        1.3295,
+        16.5475,
+        -0.8285
+      ],
+      "ArmUpL": [
+        -1.1172,
+        13.5951,
+        -0.649
+      ],
+      "ForeUpL": [
+        -5.1746,
+        12.8923,
+        -0.7129
+      ],
+      "ArmUpR": [
+        1.1191,
+        13.5951,
+        -0.649
+      ],
+      "ForeUpR": [
+        5.1765,
+        12.8923,
+        -0.7129
+      ],
+      "ArmLoL": [
+        -1.277,
+        11.3588,
+        -0.5852
+      ],
+      "ArmLoR": [
+        1.2789,
+        11.3588,
+        -0.5852
+      ],
+      "Tent0": [
+        -0.539,
+        7.525,
+        -1.3451
+      ],
+      "Tent1": [
+        0.5409,
+        7.525,
+        -1.3451
+      ],
+      "Tent2": [
+        -1.1485,
+        7.525,
+        -0.3697
+      ],
+      "Tent3": [
+        1.1504,
+        7.525,
+        -0.3697
+      ],
+      "Tent4": [
+        -0.6085,
+        7.525,
+        0.6458
+      ],
+      "Tent5": [
+        0.6104,
+        7.525,
+        0.6458
+      ]
+    },
+    "meshCount": 100,
+    "meshes": [
+      {
+        "name": "MArt_ArmLoL_All_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_All_Bronze",
+        "joint": "ArmLoL",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_All_Hide",
+        "joint": "ArmLoL",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_All_Neon",
+        "joint": "ArmLoL",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_S1_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoL_S1_Carapace",
+        "joint": "ArmLoL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoL_S2_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoL_S2_Carapace",
+        "joint": "ArmLoL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoL_S3_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_S3_Carapace",
+        "joint": "ArmLoL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Bronze",
+        "joint": "ArmLoR",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Hide",
+        "joint": "ArmLoR",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Neon",
+        "joint": "ArmLoR",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_S1_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoR_S1_Carapace",
+        "joint": "ArmLoR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoR_S2_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoR_S2_Carapace",
+        "joint": "ArmLoR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoR_S3_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_S3_Carapace",
+        "joint": "ArmLoR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_All_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_All_Hide",
+        "joint": "ArmUpL",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_All_Neon",
+        "joint": "ArmUpL",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_S1_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmUpL_S2_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmUpL_S3_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_All_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_All_Hide",
+        "joint": "ArmUpR",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_All_Neon",
+        "joint": "ArmUpR",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_S1_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmUpR_S2_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmUpR_S3_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Bone",
+        "joint": "Chest",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Carapace",
+        "joint": "Chest",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Hide",
+        "joint": "Chest",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Neon",
+        "joint": "Chest",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_CrownL_S1_Carapace",
+        "joint": "CrownL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_CrownL_S2_Carapace",
+        "joint": "CrownL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_CrownL_S3_Carapace",
+        "joint": "CrownL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_CrownR_S1_Carapace",
+        "joint": "CrownR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_CrownR_S2_Carapace",
+        "joint": "CrownR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_CrownR_S3_Carapace",
+        "joint": "CrownR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Bronze",
+        "joint": "ForeUpL",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Hide",
+        "joint": "ForeUpL",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_S1_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpL_S1_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpL_S2_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpL_S2_Bronze",
+        "joint": "ForeUpL",
+        "mat": "Bronze",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpL_S2_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpL_S3_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_S3_Bronze",
+        "joint": "ForeUpL",
+        "mat": "Bronze",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_S3_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Bronze",
+        "joint": "ForeUpR",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Hide",
+        "joint": "ForeUpR",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_S1_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpR_S1_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpR_S2_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpR_S2_Bronze",
+        "joint": "ForeUpR",
+        "mat": "Bronze",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpR_S2_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpR_S3_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_S3_Bronze",
+        "joint": "ForeUpR",
+        "mat": "Bronze",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_S3_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_Bone",
+        "joint": "Head",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_VoidCore",
+        "joint": "Head",
+        "mat": "VoidCore",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_S1_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_Head_S1_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_Head_S2_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_Head_S2_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_Head_S3_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_S3_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Bone",
+        "joint": "Pelvis",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Carapace",
+        "joint": "Pelvis",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Hide",
+        "joint": "Pelvis",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Neon",
+        "joint": "Pelvis",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_S2_Carapace",
+        "joint": "Pelvis",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_Pelvis_S3_Carapace",
+        "joint": "Pelvis",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent0_All_Bone",
+        "joint": "Tent0",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent0_All_Carapace",
+        "joint": "Tent0",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent0_All_Hide",
+        "joint": "Tent0",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent1_All_Bone",
+        "joint": "Tent1",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent1_All_Carapace",
+        "joint": "Tent1",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent1_All_Hide",
+        "joint": "Tent1",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent2_All_Bone",
+        "joint": "Tent2",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent2_All_Carapace",
+        "joint": "Tent2",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent2_All_Hide",
+        "joint": "Tent2",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent3_All_Bone",
+        "joint": "Tent3",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent3_All_Carapace",
+        "joint": "Tent3",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent3_All_Hide",
+        "joint": "Tent3",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent4_All_Bone",
+        "joint": "Tent4",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent4_All_Carapace",
+        "joint": "Tent4",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent4_All_Hide",
+        "joint": "Tent4",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent5_All_Bone",
+        "joint": "Tent5",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent5_All_Carapace",
+        "joint": "Tent5",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent5_All_Hide",
+        "joint": "Tent5",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      }
+    ]
+  },
+  "trees": {
+    "JungleCanopyTree3D": {
+      "offsetRoblox": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "JungleTree_TrunkBark",
+        "JungleTree_MossRoots",
+        "JungleTree_CanopyLow",
+        "JungleTree_CanopyHigh",
+        "JungleTree_BiolumFruit"
+      ]
+    },
+    "SwampMangroveTree3D": {
+      "offsetRoblox": [
+        -28.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "MangroveTree_TrunkBark",
+        "MangroveTree_MossRoots",
+        "MangroveTree_CanopyLow",
+        "MangroveTree_CanopyHigh",
+        "MangroveTree_BiolumFruit"
+      ]
+    },
+    "CrimsonMossTree3D": {
+      "offsetRoblox": [
+        -56.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "CrimsonTree_TrunkBark",
+        "CrimsonTree_MossRoots",
+        "CrimsonTree_CanopyLow",
+        "CrimsonTree_CanopyHigh",
+        "CrimsonTree_BiolumFruit"
+      ]
+    }
+  },
+  "debris": {
+    "ShatteredTreeStump3D": {
+      "offsetRoblox": [
+        -84.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "Stump3D_BarkOuter",
+        "Stump3D_SplinterCore"
+      ]
+    },
+    "SplinteredLogChunk3D": {
+      "offsetRoblox": [
+        -98.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "LogChunk3D_Bark",
+        "LogChunk3D_Heartwood"
+      ]
+    },
+    "CrushedRockDebris3D": {
+      "offsetRoblox": [
+        -110.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "RockDebris3D_Basalt"
+      ]
+    }
+  },
+  "treesDebrisMeshCount": 21
+}

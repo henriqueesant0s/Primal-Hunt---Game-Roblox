@@ -1,0 +1,18 @@
+# Heavy 3D & Binary Media Assets (use Open Cloud IDs tracked in *_assets_*.json)
+*.blend
+*.blend1
+*.fbx
+*.glb
+*.mp4
+textures/*.jpg
+textures/*.png
+
+# Uncleaned temp directory (scripts are exported cleanly under roblox_scripts/)
+src/
+export_luau_scripts_for_github.py
+
+# Python & OS caches
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

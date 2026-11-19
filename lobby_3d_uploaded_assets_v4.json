@@ -1,0 +1,28 @@
+{
+  "project": "PRIMAL HUNT",
+  "version": "v4",
+  "creatorUserId": "3348258240",
+  "assets": {
+    "HangarArchitecture_v4": {
+      "assetId": "80985591191910",
+      "displayName": "PRIMALHUNT_Lobby3D_Hangar_v4",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_HangarArchitecture_v4.glb",
+      "operationId": "44dc3005-f814-445a-9425-10c6a02221d9",
+      "moderationState": "Approved"
+    },
+    "MonsterCenterpiece_v4": {
+      "assetId": "91809769665505",
+      "displayName": "PRIMALHUNT_Lobby3D_Monster_v4",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_MonsterCenterpiece_v4.glb",
+      "operationId": "79d78f22-f4f1-4242-aedc-0ecd5b9c0fe9",
+      "moderationState": "Approved"
+    },
+    "ClassBasesAndHunters_v4": {
+      "assetId": "100754912184128",
+      "displayName": "PRIMALHUNT_Lobby3D_Classes_v4",
+      "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\Lobby3D_ClassBasesAndHunters_v4.glb",
+      "operationId": "9f7b4467-7037-4271-90ff-0f7e06437cff",
+      "moderationState": "Approved"
+    }
+  }
+}

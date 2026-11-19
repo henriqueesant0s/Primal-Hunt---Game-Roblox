@@ -1,0 +1,99 @@
+{
+  "licenseSummary": "CC0 1.0 Universal (Poly Haven PBR Maps + Mesh2Motion Kaiju Rig & Motion Clips)",
+  "polyhaven": {
+    "cliff_side": {
+      "usage": "Obsidian-Basalt Carapace & Dorsal Plates",
+      "apiUrl": "https://api.polyhaven.com/files/cliff_side",
+      "polyhavenPage": "https://polyhaven.com/a/cliff_side",
+      "license": "CC0 1.0",
+      "maps": {
+        "diff": {
+          "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\textures\\monster\\cliff_side_diff_1k.jpg",
+          "bytes": 859756
+        },
+        "rough": {
+          "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\textures\\monster\\cliff_side_rough_1k.jpg",
+          "bytes": 422579
+        },
+        "nor_gl": {
+          "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\textures\\monster\\cliff_side_nor_gl_1k.jpg",
+          "bytes": 1007837
+        }
+      }
+    },
+    "brown_leather": {
+      "usage": "Abyssal Reptilian Hide Micro-Grain",
+      "apiUrl": "https://api.polyhaven.com/files/brown_leather",
+      "polyhavenPage": "https://polyhaven.com/a/brown_leather",
+      "license": "CC0 1.0",
+      "maps": {
+        "diff": {
+          "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\textures\\monster\\brown_leather_diff_1k.jpg",
+          "bytes": 503348
+        },
+        "rough": {
+          "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\textures\\monster\\brown_leather_rough_1k.jpg",
+          "bytes": 686142
+        },
+        "nor_gl": {
+          "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\textures\\monster\\brown_leather_nor_gl_1k.jpg",
+          "bytes": 863280
+        }
+      }
+    }
+  },
+  "mesh2motionKaiju": {
+    "repo": "https://github.com/Mesh2Motion/mesh2motion-app",
+    "assetsRepoLicense": "CC0-1.0 (https://github.com/Mesh2Motion/mesh2motion-assets)",
+    "files": {
+      "model.glb": {
+        "description": "Base 58-Bone Kaiju Rigged Mesh (CC0-1.0)",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/model.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\model.glb",
+        "bytes": 156756
+      },
+      "idle.glb": {
+        "description": "Monster_Idle Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/idle.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\idle.glb",
+        "bytes": 60540
+      },
+      "walk.glb": {
+        "description": "Monster_Walk Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/walk.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\walk.glb",
+        "bytes": 68468
+      },
+      "roar.glb": {
+        "description": "Monster_Roar Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/roar.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\roar.glb",
+        "bytes": 78936
+      },
+      "attack.glb": {
+        "description": "Monster_Attack Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/attack.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\attack.glb",
+        "bytes": 59140
+      },
+      "tail-attack.glb": {
+        "description": "Monster_TailAttack Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/tail-attack.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\tail-attack.glb",
+        "bytes": 66372
+      },
+      "hit.glb": {
+        "description": "Monster_Hit Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/hit.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\hit.glb",
+        "bytes": 54872
+      },
+      "death.glb": {
+        "description": "Monster_Death Skeletal Animation",
+        "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/main/static/assets/kaiju/animations/death.glb",
+        "file": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\assets\\cc0_kaiju\\death.glb",
+        "bytes": 71696
+      }
+    }
+  }
+}

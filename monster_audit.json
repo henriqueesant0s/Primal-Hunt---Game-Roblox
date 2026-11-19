@@ -1,0 +1,97 @@
+{
+  "creature": "Arauto do Eclipse Abissal",
+  "skeletonBones": 67,
+  "coreBodyLooseComponents": 9,
+  "coreBodyTriangles": 12456,
+  "meshTriangleBreakdown": {
+    "Monster_CoreBody_Skinned": 12456,
+    "Monster_RibcageAndShackles_Skinned": 6120,
+    "Monster_Stage1_Apex_Skinned": 6448,
+    "Monster_Stage2_Tyrant_Skinned": 10260,
+    "Monster_Stage3_EclipseGod_Skinned": 13724
+  },
+  "totalTrianglesAllStages": 49008,
+  "over20000Budget": [],
+  "negativeScaleObjects": [],
+  "emptyMeshes": [],
+  "stageHeightsMeters": {
+    "Stage1_1_0x": 6.886,
+    "Stage2_1_3x": 9.91,
+    "Stage3_1_65x": 14.237
+  },
+  "animationsCount": 8,
+  "animationClips": [
+    {
+      "name": "Monster_Intro_Roar",
+      "frames": [
+        0.0,
+        84.0
+      ]
+    },
+    {
+      "name": "Monster_Idle",
+      "frames": [
+        0.0,
+        60.0
+      ]
+    },
+    {
+      "name": "Monster_Walk",
+      "frames": [
+        0.0,
+        48.0
+      ]
+    },
+    {
+      "name": "Monster_Run",
+      "frames": [
+        0.0,
+        36.0
+      ]
+    },
+    {
+      "name": "Monster_Attack",
+      "frames": [
+        0.0,
+        42.0
+      ]
+    },
+    {
+      "name": "Monster_Jump",
+      "frames": [
+        0.0,
+        60.0
+      ]
+    },
+    {
+      "name": "Monster_SpitAndSlam",
+      "frames": [
+        0.0,
+        72.0
+      ]
+    },
+    {
+      "name": "Monster_Evolve",
+      "frames": [
+        0.0,
+        84.0
+      ]
+    }
+  ],
+  "blendPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\AbyssMonster.blend",
+  "showcaseBlendPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\ArautoDoEclipse_3Estagios.blend",
+  "glbPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\AbyssMonster.glb",
+  "fbxPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\AbyssMonster.fbx",
+  "stageGlbs": [
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\AbyssMonster_Stage1.glb",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\AbyssMonster_Stage2.glb",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\AbyssMonster_Stage3.glb"
+  ],
+  "videoPath": "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\AbyssMonster_AnimationPreview.mp4",
+  "previews": [
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\monster_view_1.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\monster_view_2.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\monster_view_3.png",
+    "C:\\Users\\Usuario\\.gemini\\antigravity\\scratch\\project_primalhunt\\previews\\monster_view_4.png"
+  ]
+}

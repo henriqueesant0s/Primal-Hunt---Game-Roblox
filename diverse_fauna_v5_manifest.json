@@ -1,0 +1,317 @@
+{
+  "fauna": [
+    {
+      "species": "SwampStalkerRaptor",
+      "prefix": "Raptor3D",
+      "offsetRoblox": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        0.0,
+        2.1,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          2.85,
+          -1.55
+        ],
+        "Tail": [
+          -0.0,
+          1.88,
+          1.45
+        ],
+        "LegFL": [
+          -0.56,
+          2.15,
+          -0.95
+        ],
+        "LegFR": [
+          0.56,
+          2.15,
+          -0.95
+        ],
+        "LegBL": [
+          -0.55,
+          1.88,
+          0.38
+        ],
+        "LegBR": [
+          0.55,
+          1.88,
+          0.38
+        ]
+      },
+      "meshes": [
+        "Raptor3D_Body_Hide",
+        "Raptor3D_Body_Armor",
+        "Raptor3D_Body_Glow",
+        "Raptor3D_Head_Armor",
+        "Raptor3D_Head_Glow",
+        "Raptor3D_Tail_Hide",
+        "Raptor3D_Tail_Armor",
+        "Raptor3D_LegFL_Hide",
+        "Raptor3D_LegFL_Armor",
+        "Raptor3D_LegFR_Hide",
+        "Raptor3D_LegFR_Armor",
+        "Raptor3D_LegBL_Hide",
+        "Raptor3D_LegBL_Armor",
+        "Raptor3D_LegBR_Hide",
+        "Raptor3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "ThornbackBoar",
+      "prefix": "Boar3D",
+      "offsetRoblox": [
+        -22.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        0.0,
+        1.65,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          1.65,
+          -1.62
+        ],
+        "Tail": [
+          -0.0,
+          1.48,
+          1.5
+        ],
+        "LegFL": [
+          -0.78,
+          1.25,
+          -1.05
+        ],
+        "LegFR": [
+          0.78,
+          1.25,
+          -1.05
+        ],
+        "LegBL": [
+          -0.78,
+          1.25,
+          1.02
+        ],
+        "LegBR": [
+          0.78,
+          1.25,
+          1.02
+        ]
+      },
+      "meshes": [
+        "Boar3D_Body_Hide",
+        "Boar3D_Body_Armor",
+        "Boar3D_Body_Glow",
+        "Boar3D_Head_Armor",
+        "Boar3D_Head_Glow",
+        "Boar3D_Tail_Hide",
+        "Boar3D_LegFL_Hide",
+        "Boar3D_LegFL_Armor",
+        "Boar3D_LegFR_Hide",
+        "Boar3D_LegFR_Armor",
+        "Boar3D_LegBL_Hide",
+        "Boar3D_LegBL_Armor",
+        "Boar3D_LegBR_Hide",
+        "Boar3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "BiolumMantisStalker",
+      "prefix": "Mantis3D",
+      "offsetRoblox": [
+        -44.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        0.0,
+        2.3,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          3.75,
+          -0.95
+        ],
+        "Tail": [
+          -0.0,
+          1.82,
+          0.82
+        ],
+        "LegFL": [
+          -0.52,
+          3.1,
+          -0.68
+        ],
+        "LegFR": [
+          0.52,
+          3.1,
+          -0.68
+        ],
+        "LegBL": [
+          -0.55,
+          1.85,
+          0.25
+        ],
+        "LegBR": [
+          0.55,
+          1.85,
+          0.25
+        ]
+      },
+      "meshes": [
+        "Mantis3D_Body_Hide",
+        "Mantis3D_Body_Armor",
+        "Mantis3D_Body_Glow",
+        "Mantis3D_Head_Armor",
+        "Mantis3D_Head_Glow",
+        "Mantis3D_Tail_Hide",
+        "Mantis3D_LegFL_Hide",
+        "Mantis3D_LegFL_Armor",
+        "Mantis3D_LegFR_Hide",
+        "Mantis3D_LegFR_Armor",
+        "Mantis3D_LegBL_Hide",
+        "Mantis3D_LegBL_Armor",
+        "Mantis3D_LegBR_Hide",
+        "Mantis3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "MireCrocoSnapper",
+      "prefix": "Croc3D",
+      "offsetRoblox": [
+        -66.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        0.0,
+        0.9,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          0.92,
+          -1.9
+        ],
+        "Tail": [
+          -0.0,
+          0.8,
+          1.95
+        ],
+        "LegFL": [
+          -0.85,
+          0.72,
+          -1.25
+        ],
+        "LegFR": [
+          0.85,
+          0.72,
+          -1.25
+        ],
+        "LegBL": [
+          -0.85,
+          0.72,
+          1.35
+        ],
+        "LegBR": [
+          0.85,
+          0.72,
+          1.35
+        ]
+      },
+      "meshes": [
+        "Croc3D_Body_Hide",
+        "Croc3D_Body_Armor",
+        "Croc3D_Head_Armor",
+        "Croc3D_Head_Glow",
+        "Croc3D_Tail_Hide",
+        "Croc3D_Tail_Armor",
+        "Croc3D_LegFL_Hide",
+        "Croc3D_LegFL_Armor",
+        "Croc3D_LegFR_Hide",
+        "Croc3D_LegFR_Armor",
+        "Croc3D_LegBL_Hide",
+        "Croc3D_LegBL_Armor",
+        "Croc3D_LegBR_Hide",
+        "Croc3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "HornedCeratopsBull",
+      "prefix": "Ceratops3D",
+      "offsetRoblox": [
+        -88.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        0.0,
+        2.55,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          2.55,
+          -2.25
+        ],
+        "Tail": [
+          -0.0,
+          2.3,
+          2.35
+        ],
+        "LegFL": [
+          -1.42,
+          2.05,
+          -1.55
+        ],
+        "LegFR": [
+          1.42,
+          2.05,
+          -1.55
+        ],
+        "LegBL": [
+          -1.42,
+          2.05,
+          1.65
+        ],
+        "LegBR": [
+          1.42,
+          2.05,
+          1.65
+        ]
+      },
+      "meshes": [
+        "Ceratops3D_Body_Hide",
+        "Ceratops3D_Body_Armor",
+        "Ceratops3D_Body_Glow",
+        "Ceratops3D_Head_Armor",
+        "Ceratops3D_Head_Glow",
+        "Ceratops3D_Tail_Hide",
+        "Ceratops3D_Tail_Armor",
+        "Ceratops3D_LegFL_Hide",
+        "Ceratops3D_LegFL_Armor",
+        "Ceratops3D_LegFR_Hide",
+        "Ceratops3D_LegFR_Armor",
+        "Ceratops3D_LegBL_Hide",
+        "Ceratops3D_LegBL_Armor",
+        "Ceratops3D_LegBR_Hide",
+        "Ceratops3D_LegBR_Armor"
+      ]
+    }
+  ],
+  "totalMeshes": 73
+}

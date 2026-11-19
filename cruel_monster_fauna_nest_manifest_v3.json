@@ -1,0 +1,1168 @@
+{
+  "monster": {
+    "stage1HeightStuds": 14.5,
+    "jointPivots": {
+      "Pelvis": [
+        0.0006,
+        4.8123,
+        -0.2172
+      ],
+      "Chest": [
+        0.0006,
+        6.8127,
+        -0.3014
+      ],
+      "Head": [
+        0.0006,
+        10.0764,
+        -0.5541
+      ],
+      "CrownL": [
+        -0.875,
+        10.9063,
+        -0.5461
+      ],
+      "CrownR": [
+        0.8763,
+        10.9063,
+        -0.5461
+      ],
+      "ArmUpL": [
+        -0.7364,
+        8.9604,
+        -0.4278
+      ],
+      "ForeUpL": [
+        -3.4105,
+        8.4972,
+        -0.4699
+      ],
+      "ArmUpR": [
+        0.7376,
+        8.9604,
+        -0.4278
+      ],
+      "ForeUpR": [
+        3.4118,
+        8.4972,
+        -0.4699
+      ],
+      "ArmLoL": [
+        -0.8416,
+        7.4865,
+        -0.3857
+      ],
+      "ArmLoR": [
+        0.8429,
+        7.4865,
+        -0.3857
+      ],
+      "Tent0": [
+        -0.3552,
+        4.9597,
+        -0.8865
+      ],
+      "Tent1": [
+        0.3565,
+        4.9597,
+        -0.8865
+      ],
+      "Tent2": [
+        -0.7569,
+        4.9597,
+        -0.2437
+      ],
+      "Tent3": [
+        0.7582,
+        4.9597,
+        -0.2437
+      ],
+      "Tent4": [
+        -0.4011,
+        4.9597,
+        0.4256
+      ],
+      "Tent5": [
+        0.4023,
+        4.9597,
+        0.4256
+      ]
+    },
+    "meshCount": 100,
+    "meshes": [
+      {
+        "name": "MArt_ArmLoL_All_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_All_Bronze",
+        "joint": "ArmLoL",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_All_Hide",
+        "joint": "ArmLoL",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_All_Neon",
+        "joint": "ArmLoL",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_S1_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoL_S1_Carapace",
+        "joint": "ArmLoL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoL_S2_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoL_S2_Carapace",
+        "joint": "ArmLoL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoL_S3_Bone",
+        "joint": "ArmLoL",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoL_S3_Carapace",
+        "joint": "ArmLoL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Bronze",
+        "joint": "ArmLoR",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Hide",
+        "joint": "ArmLoR",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_All_Neon",
+        "joint": "ArmLoR",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_S1_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoR_S1_Carapace",
+        "joint": "ArmLoR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmLoR_S2_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoR_S2_Carapace",
+        "joint": "ArmLoR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmLoR_S3_Bone",
+        "joint": "ArmLoR",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmLoR_S3_Carapace",
+        "joint": "ArmLoR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_All_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_All_Hide",
+        "joint": "ArmUpL",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_All_Neon",
+        "joint": "ArmUpL",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpL_S1_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmUpL_S2_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmUpL_S3_Carapace",
+        "joint": "ArmUpL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_All_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_All_Hide",
+        "joint": "ArmUpR",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_All_Neon",
+        "joint": "ArmUpR",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ArmUpR_S1_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ArmUpR_S2_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ArmUpR_S3_Carapace",
+        "joint": "ArmUpR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Bone",
+        "joint": "Chest",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Carapace",
+        "joint": "Chest",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Hide",
+        "joint": "Chest",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Chest_All_Neon",
+        "joint": "Chest",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_CrownL_S1_Carapace",
+        "joint": "CrownL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_CrownL_S2_Carapace",
+        "joint": "CrownL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_CrownL_S3_Carapace",
+        "joint": "CrownL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_CrownR_S1_Carapace",
+        "joint": "CrownR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_CrownR_S2_Carapace",
+        "joint": "CrownR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_CrownR_S3_Carapace",
+        "joint": "CrownR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Bronze",
+        "joint": "ForeUpL",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_All_Hide",
+        "joint": "ForeUpL",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_S1_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpL_S1_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpL_S2_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpL_S2_Bronze",
+        "joint": "ForeUpL",
+        "mat": "Bronze",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpL_S2_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpL_S3_Bone",
+        "joint": "ForeUpL",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_S3_Bronze",
+        "joint": "ForeUpL",
+        "mat": "Bronze",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpL_S3_Carapace",
+        "joint": "ForeUpL",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Bronze",
+        "joint": "ForeUpR",
+        "mat": "Bronze",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_All_Hide",
+        "joint": "ForeUpR",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_S1_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpR_S1_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_ForeUpR_S2_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpR_S2_Bronze",
+        "joint": "ForeUpR",
+        "mat": "Bronze",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpR_S2_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_ForeUpR_S3_Bone",
+        "joint": "ForeUpR",
+        "mat": "Bone",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_S3_Bronze",
+        "joint": "ForeUpR",
+        "mat": "Bronze",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_ForeUpR_S3_Carapace",
+        "joint": "ForeUpR",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_Bone",
+        "joint": "Head",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_All_VoidCore",
+        "joint": "Head",
+        "mat": "VoidCore",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_S1_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_Head_S1_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 1
+      },
+      {
+        "name": "MArt_Head_S2_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_Head_S2_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_Head_S3_Carapace",
+        "joint": "Head",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Head_S3_Neon",
+        "joint": "Head",
+        "mat": "Neon",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Bone",
+        "joint": "Pelvis",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Carapace",
+        "joint": "Pelvis",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Hide",
+        "joint": "Pelvis",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_All_Neon",
+        "joint": "Pelvis",
+        "mat": "Neon",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Pelvis_S2_Carapace",
+        "joint": "Pelvis",
+        "mat": "Carapace",
+        "minStage": 2,
+        "maxStage": 2
+      },
+      {
+        "name": "MArt_Pelvis_S3_Carapace",
+        "joint": "Pelvis",
+        "mat": "Carapace",
+        "minStage": 3,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent0_All_Bone",
+        "joint": "Tent0",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent0_All_Carapace",
+        "joint": "Tent0",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent0_All_Hide",
+        "joint": "Tent0",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent1_All_Bone",
+        "joint": "Tent1",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent1_All_Carapace",
+        "joint": "Tent1",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent1_All_Hide",
+        "joint": "Tent1",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent2_All_Bone",
+        "joint": "Tent2",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent2_All_Carapace",
+        "joint": "Tent2",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent2_All_Hide",
+        "joint": "Tent2",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent3_All_Bone",
+        "joint": "Tent3",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent3_All_Carapace",
+        "joint": "Tent3",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent3_All_Hide",
+        "joint": "Tent3",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent4_All_Bone",
+        "joint": "Tent4",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent4_All_Carapace",
+        "joint": "Tent4",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent4_All_Hide",
+        "joint": "Tent4",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent5_All_Bone",
+        "joint": "Tent5",
+        "mat": "Bone",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent5_All_Carapace",
+        "joint": "Tent5",
+        "mat": "Carapace",
+        "minStage": 1,
+        "maxStage": 3
+      },
+      {
+        "name": "MArt_Tent5_All_Hide",
+        "joint": "Tent5",
+        "mat": "Hide",
+        "minStage": 1,
+        "maxStage": 3
+      }
+    ]
+  },
+  "fauna": [
+    {
+      "species": "RedGoliath",
+      "prefix": "Goliath3D",
+      "offsetRoblox": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        -0.0,
+        2.35,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          2.55,
+          -2.35
+        ],
+        "Tail": [
+          -0.0,
+          2.05,
+          2.1
+        ],
+        "LegFL": [
+          -1.35,
+          2.15,
+          -1.65
+        ],
+        "LegFR": [
+          1.35,
+          2.15,
+          -1.65
+        ],
+        "LegBL": [
+          -1.12,
+          2.08,
+          1.72
+        ],
+        "LegBR": [
+          1.12,
+          2.08,
+          1.72
+        ]
+      },
+      "meshes": [
+        "Goliath3D_Body_Hide",
+        "Goliath3D_Body_Armor",
+        "Goliath3D_Body_Magma",
+        "Goliath3D_Head_Armor",
+        "Goliath3D_Head_Magma",
+        "Goliath3D_Tail_Hide",
+        "Goliath3D_Tail_Armor",
+        "Goliath3D_LegFL_Hide",
+        "Goliath3D_LegFL_Armor",
+        "Goliath3D_LegFR_Hide",
+        "Goliath3D_LegFR_Armor",
+        "Goliath3D_LegBL_Hide",
+        "Goliath3D_LegBL_Armor",
+        "Goliath3D_LegBR_Hide",
+        "Goliath3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "CoastalScavenger",
+      "prefix": "Scavenger3D",
+      "offsetRoblox": [
+        -20.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        -0.0,
+        1.25,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          1.3,
+          -1.12
+        ],
+        "Tail": [
+          -0.0,
+          1.1,
+          1.1
+        ],
+        "LegFL": [
+          -0.66,
+          1.18,
+          -0.78
+        ],
+        "LegFR": [
+          0.66,
+          1.18,
+          -0.78
+        ],
+        "LegBL": [
+          -0.6,
+          1.12,
+          0.8
+        ],
+        "LegBR": [
+          0.6,
+          1.12,
+          0.8
+        ]
+      },
+      "meshes": [
+        "Scavenger3D_Body_Hide",
+        "Scavenger3D_Body_Armor",
+        "Scavenger3D_Body_Glow",
+        "Scavenger3D_Head_Armor",
+        "Scavenger3D_Head_Glow",
+        "Scavenger3D_Tail_Hide",
+        "Scavenger3D_Tail_Armor",
+        "Scavenger3D_LegFL_Hide",
+        "Scavenger3D_LegFL_Armor",
+        "Scavenger3D_LegFR_Hide",
+        "Scavenger3D_LegFR_Armor",
+        "Scavenger3D_LegBL_Hide",
+        "Scavenger3D_LegBL_Armor",
+        "Scavenger3D_LegBR_Hide",
+        "Scavenger3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "SporeCrawler",
+      "prefix": "SporeCrawler3D",
+      "offsetRoblox": [
+        -40.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        -0.0,
+        1.65,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          1.52,
+          -1.55
+        ],
+        "Tail": [
+          -0.0,
+          1.58,
+          1.45
+        ],
+        "LegFL": [
+          -1.3,
+          1.48,
+          -1.05
+        ],
+        "LegFR": [
+          1.3,
+          1.48,
+          -1.05
+        ],
+        "LegBL": [
+          -1.22,
+          1.45,
+          1.15
+        ],
+        "LegBR": [
+          1.22,
+          1.45,
+          1.15
+        ]
+      },
+      "meshes": [
+        "SporeCrawler3D_Body_Hide",
+        "SporeCrawler3D_Body_Armor",
+        "SporeCrawler3D_Body_SporeGlow",
+        "SporeCrawler3D_Head_Armor",
+        "SporeCrawler3D_Head_SporeGlow",
+        "SporeCrawler3D_Tail_Hide",
+        "SporeCrawler3D_Tail_Armor",
+        "SporeCrawler3D_LegFL_Hide",
+        "SporeCrawler3D_LegFL_Armor",
+        "SporeCrawler3D_LegFR_Hide",
+        "SporeCrawler3D_LegFR_Armor",
+        "SporeCrawler3D_LegBL_Hide",
+        "SporeCrawler3D_LegBL_Armor",
+        "SporeCrawler3D_LegBR_Hide",
+        "SporeCrawler3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "AcidSpitterDrake",
+      "prefix": "AcidDrake3D",
+      "offsetRoblox": [
+        -60.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        -0.0,
+        2.05,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          2.55,
+          -1.95
+        ],
+        "Tail": [
+          -0.0,
+          1.75,
+          1.75
+        ],
+        "LegFL": [
+          -0.88,
+          1.98,
+          -1.25
+        ],
+        "LegFR": [
+          0.88,
+          1.98,
+          -1.25
+        ],
+        "LegBL": [
+          -0.78,
+          1.78,
+          1.35
+        ],
+        "LegBR": [
+          0.78,
+          1.78,
+          1.35
+        ]
+      },
+      "meshes": [
+        "AcidDrake3D_Body_Hide",
+        "AcidDrake3D_Body_Armor",
+        "AcidDrake3D_Body_Venom",
+        "AcidDrake3D_Head_Armor",
+        "AcidDrake3D_Head_Venom",
+        "AcidDrake3D_Tail_Hide",
+        "AcidDrake3D_Tail_Armor",
+        "AcidDrake3D_LegFL_Hide",
+        "AcidDrake3D_LegFL_Armor",
+        "AcidDrake3D_LegFR_Hide",
+        "AcidDrake3D_LegFR_Armor",
+        "AcidDrake3D_LegBL_Hide",
+        "AcidDrake3D_LegBL_Armor",
+        "AcidDrake3D_LegBR_Hide",
+        "AcidDrake3D_LegBR_Armor"
+      ]
+    },
+    {
+      "species": "ObsidianCragback",
+      "prefix": "Cragback3D",
+      "offsetRoblox": [
+        -80.0,
+        0.0,
+        0.0
+      ],
+      "trunkPos": [
+        -0.0,
+        2.75,
+        0.0
+      ],
+      "pivots": {
+        "Head": [
+          -0.0,
+          2.68,
+          -2.55
+        ],
+        "Tail": [
+          -0.0,
+          2.42,
+          2.55
+        ],
+        "LegFL": [
+          -1.72,
+          2.35,
+          -1.82
+        ],
+        "LegFR": [
+          1.72,
+          2.35,
+          -1.82
+        ],
+        "LegBL": [
+          -1.58,
+          2.25,
+          1.92
+        ],
+        "LegBR": [
+          1.58,
+          2.25,
+          1.92
+        ]
+      },
+      "meshes": [
+        "Cragback3D_Body_Hide",
+        "Cragback3D_Body_Armor",
+        "Cragback3D_Body_Magma",
+        "Cragback3D_Head_Armor",
+        "Cragback3D_Head_Magma",
+        "Cragback3D_Tail_Hide",
+        "Cragback3D_Tail_Armor",
+        "Cragback3D_LegFL_Hide",
+        "Cragback3D_LegFL_Armor",
+        "Cragback3D_LegFR_Hide",
+        "Cragback3D_LegFR_Armor",
+        "Cragback3D_LegBL_Hide",
+        "Cragback3D_LegBL_Armor",
+        "Cragback3D_LegBR_Hide",
+        "Cragback3D_LegBR_Armor"
+      ]
+    }
+  ],
+  "props": {
+    "AbyssalNest3D": {
+      "offsetRoblox": [
+        -120.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "Nest3D_BaseRock",
+        "Nest3D_RibCage",
+        "Nest3D_FleshWebs",
+        "Nest3D_EggCluster",
+        "Nest3D_MagmaCore"
+      ]
+    },
+    "CorruptedAEMOutpost3D": {
+      "offsetRoblox": [
+        -155.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "Outpost3D_ConcreteBase",
+        "Outpost3D_SteelFrame",
+        "Outpost3D_Machinery",
+        "Outpost3D_VinesSlashes",
+        "Outpost3D_WarningGlow"
+      ]
+    },
+    "BoneTotemShrine3D": {
+      "offsetRoblox": [
+        -180.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "Totem3D_Cairn",
+        "Totem3D_Bones",
+        "Totem3D_HideBanner",
+        "Totem3D_Runes"
+      ]
+    },
+    "BiolumSporeTree3D": {
+      "offsetRoblox": [
+        -200.0,
+        0.0,
+        0.0
+      ],
+      "meshes": [
+        "SporeTree3D_Bark",
+        "SporeTree3D_VinesCanopy",
+        "SporeTree3D_SporeLanterns"
+      ]
+    }
+  },
+  "bioTotalMeshCount": 93
+}

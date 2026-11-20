@@ -21,6 +21,9 @@
 > Este jogo está sendo desenvolvido ativamente por **Henrique Santos**, **Alan Vinicius** e **Thiago Zarotti**.  
 > Mecânicas de caça assimétrica, balanceamento das 4 classes de caçadores, malhas 3D e rigs esqueléticos no Blender, áudio e iluminação continuam em constante expansão e aprimoramento.
 
+> [!NOTE]
+> **Última atualização: v158** — AbyssArtKit 3D (24 malhas do Blender), combate telegrafado, deck de habilidades PC/Celular em PT-BR, spawns ajustados ao chão e **35 scripts** sincronizados. Veja [DEVLOG_V158_ABYSS_ARTKIT_AND_COMBAT_POLISH.md](DEVLOG_V158_ABYSS_ARTKIT_AND_COMBAT_POLISH.md).
+
 ---
 
 ## 👥 Equipe de Desenvolvimento & Criação
@@ -143,7 +146,9 @@ Todos os sistemas foram programados em Luau estrito, com separação limpa de re
 │   ├── build_diverse_fauna_pack_v5.py
 │   └── ...
 ├── previews/                                  # Renders em alta qualidade dos modelos e cenas 3D
-├── roblox_scripts/                            # Código-fonte oficial em Luau (--!strict)
+├── DEVLOG_V158_ABYSS_ARTKIT_AND_COMBAT_POLISH.md # Devlog da versão v158
+├── roblox_scripts/                            # 35 scripts Luau (--!strict) do Studio v158
+│   ├── ReplicatedStorage/                     # Módulos compartilhados (UIKit, CombatMotion, FieldDeck)
 │   ├── ServerScriptService/                   # Lógica de servidor, IAs, física e economia
 │   └── StarterPlayer/                         # Clientes, HUD tática, animações e cutscenes
 ├── textures/                                  # Texturas PBR e mapeamentos utilizados

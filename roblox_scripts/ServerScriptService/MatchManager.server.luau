@@ -491,6 +491,7 @@ while true do
 		warn("MatchManager: faltam peças em MonsterSpawns ou HunterSpawns")
 		continue
 	end
+	workspace:SetAttribute("HuntLightingEpoch", workspace:GetServerTimeNow())
 	remotes:SetAttribute("MatchId", game:GetService("HttpService"):GenerateGUID(false))
 	remotes:SetAttribute("RoundClosed", false)
 	announce("RoleAssignment", 0, {})
@@ -515,4 +516,3 @@ while true do
 	end
 	finishRound(outcome or {winner = "Hunters", reason = "TimeExpired"})
 end
-

@@ -266,4 +266,3 @@ local function updateRoster()
 end
 match:GetAttributeChangedSignal("MatchState"):Connect(updateRoster)
 match:GetAttributeChangedSignal("RoundClosed"):Connect(updateRoster)
-

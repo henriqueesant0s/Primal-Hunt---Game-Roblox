@@ -6,6 +6,7 @@ local ServerStorage = game:GetService("ServerStorage")
 local TweenService = game:GetService("TweenService")
 
 local DamageService = require(script.Parent.DamageService)
+local Motion = require(ReplicatedStorage:WaitForChild("AbyssCombatMotion"))
 local remotes = ReplicatedStorage:WaitForChild("Remotes")
 local gameEvents = remotes:WaitForChild("GameRemotes")
 local active = workspace:WaitForChild("ActivePrey")
@@ -122,6 +123,8 @@ type Animal = {
 	aggroTarget: Model?,
 	nextAttack: number,
 	nextRoar: number,
+	pendingAttack: {target: Model, direction: Vector3, at: number}?,
+	recoverAt: number,
 }
 type Meal = { body: Model, animal: Model, origin: Vector3, started: number }
 
@@ -315,6 +318,8 @@ local function spawnAnimal(home: BasePart)
 		aggroTarget = nil,
 		nextAttack = 0,
 		nextRoar = 0,
+		pendingAttack = nil,
+		recoverAt = 0,
 	}
 	animals[m] = data
 	m.Parent = active
@@ -438,7 +443,7 @@ local function updateMeals(now: number)
 			body:SetAttribute("Armor", math.clamp((body:GetAttribute("Armor") or 0) + armorGain, 0, body:GetAttribute("MaxArmor") or 600))
 			if typeof(buffPct) == "number" and buffPct > 0 then
 				applyMonsterFeastSpeedBuff(body, buffPct, 20)
-				gameEvents.UpdateUI:FireClient(p, "ApexFeastBuff", { bonusPct = 10, duration = 20 })
+				gameEvents.UpdateUI:FireClient(p, "ApexFeastBuff", { bonusPct = math.round(buffPct * 100), duration = 20 })
 			end
 			if data then
 				respawns[data.home] = now + (if data.tier == 2 then 55 else 22)
@@ -465,13 +470,23 @@ local function orientedGroundCF(currentCF: CFrame, groundPos: Vector3, dir: Vect
 	return CFrame.new(groundPos) * smoothRot
 end
 
-local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: RaycastParams, dt: number, now: number)
+local function steer(origin: Vector3, direction: Vector3, distance: number, radius: number, obstacles: RaycastParams): Vector3?
+	for _, angle in {0, 0.72, -0.72, 1.35, -1.35} do
+		local heading = CFrame.Angles(0,angle,0):VectorToWorldSpace(direction)
+		if not workspace:Spherecast(origin, radius, heading * (distance+1), obstacles) then return heading end
+	end
+	return nil
+end
+
+local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: RaycastParams, obstacles: RaycastParams, dt: number, now: number)
 	local primary = m.PrimaryPart
 	if not primary then return end
 	local cfg = SPECIES_CONFIG[data.species] or SPECIES_CONFIG.RedGoliath
 	local gOff = data.groundY
 	local position = primary.Position
 	local homePos = data.home.Position
+	local pending = data.pendingAttack
+	if now < data.recoverAt or (pending and now < pending.at) then return end
 
 	-- Pick nearest living Monster or Hunter indiscriminately within territorial range
 	local bestChar: Model? = nil
@@ -502,6 +517,12 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 		end
 	end
 
+	if pending then
+		data.pendingAttack = nil
+		data.recoverAt = now + 0.26
+		bestChar = pending.target
+		bestRoot = validCombatTarget(bestChar)
+	end
 	data.aggroTarget = bestChar
 
 	if bestChar and bestRoot then
@@ -518,8 +539,21 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 		local flatDist = toTarget.Magnitude
 		local dir = if flatDist > 0.1 then toTarget.Unit else primary.CFrame.LookVector
 
-		if flatDist <= cfg.atkRange and now >= data.nextAttack then
+		local targetOffset = bestRoot.Position-position
+		local inRange = targetOffset.Magnitude <= cfg.atkRange
+		if not pending and inRange and now >= data.nextAttack
+			and not workspace:Raycast(position,targetOffset,obstacles) then
+			local lead = Motion.windup(data.species)
 			data.nextAttack = now + cfg.atkCd
+			data.pendingAttack = {target=bestChar, direction=dir, at=now+lead}
+			m:SetAttribute("MoveSpeed",0)
+			m:SetAttribute("AttackImpactAt",workspace:GetServerTimeNow()+lead)
+			pivotRig(m, data, CFrame.lookAt(position,position+dir,primary.CFrame.UpVector))
+			return
+		end
+		if pending then
+			local facing = cfg.mode=="SporeBurst" or flatDist<.05 or pending.direction:Dot(dir)>=.68
+			if not inRange or not facing or workspace:Raycast(position,targetOffset,obstacles) then return end
 			m:SetAttribute("AttackCount", (m:GetAttribute("AttackCount") or 0) + 1)
 
 			if cfg.mode == "AcidSpit" then
@@ -537,7 +571,15 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 				local tgtPos = bestRoot.Position
 				TweenService:Create(spit, TweenInfo.new(0.24, Enum.EasingStyle.Linear), { Position = tgtPos, Size = Vector3.one * 3.8, Transparency = 0.65 }):Play()
 				Debris:AddItem(spit, 0.30)
-				DamageService.ApplyDamage(nil, bestChar, cfg.atkDmg)
+				local target = bestChar
+				local start = spit.Position
+				task.delay(.24,function()
+					local hitRoot = validCombatTarget(target)
+					if combat() and m.Parent==active and hitRoot and (hitRoot.Position-tgtPos).Magnitude<=4
+						and not workspace:Raycast(start,hitRoot.Position-start,obstacles) then
+						DamageService.ApplyDamage(nil,target,cfg.atkDmg)
+					end
+				end)
 			elseif cfg.mode == "SporeBurst" then
 				playOneShot3D(primary, ACID_SPIT_SFX, 0.80, 0.82, 140)
 				local cloud = Instance.new("Part")
@@ -555,7 +597,7 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 				Debris:AddItem(cloud, 0.60)
 				for _, cand in ipairs(candidates) do
 					local cr = validCombatTarget(cand)
-					if cr and (cr.Position - position).Magnitude <= 14.5 then
+					if cr and (cr.Position - position).Magnitude <= 14.5 and not workspace:Raycast(position,cr.Position-position,obstacles) then
 						DamageService.ApplyDamage(nil, cand, cfg.atkDmg)
 					end
 				end
@@ -571,6 +613,7 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 					lv.MaxForce = bestRoot.AssemblyMass * 1900
 					lv.VectorVelocity = dir * (if data.species == "ObsidianCragback" then 66 else 56) + Vector3.yAxis * 16
 					lv.Parent = att
+					Debris:AddItem(lv, 0.22)
 					Debris:AddItem(att, 0.22)
 				end
 				local shock = Instance.new("Part")
@@ -587,12 +630,17 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 				TweenService:Create(shock, TweenInfo.new(0.32), { Size = Vector3.one * (if data.species == "ObsidianCragback" then 30 else 22), Transparency = 1 }):Play()
 				Debris:AddItem(shock, 0.36)
 			end
+			return
 		end
 
 		local holdDist = if cfg.mode == "AcidSpit" then 22 else 7.5
 		if flatDist > holdDist then
 			local speed = cfg.chaseSpeed
-			local step = dir * math.min(dt * speed, 3.0)
+			local distance = math.min(dt*speed,3.0)
+			local heading = steer(position,dir,distance,math.min(gOff*0.65,2),obstacles)
+			if not heading then m:SetAttribute("MoveSpeed",0); return end
+			dir = heading
+			local step = dir * distance
 			local nextPos = position + step
 			if (nextPos - homePos).Magnitude <= 76 then
 				local hit = workspace:Raycast(nextPos + Vector3.yAxis * 10, -Vector3.yAxis * 24, params)
@@ -609,6 +657,8 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 		return
 	end
 
+	if pending then return end
+
 	-- Territorial patrol around mineral pool / moat den
 	if now < data.nextMove then
 		m:SetAttribute("MoveSpeed", 0)
@@ -620,7 +670,11 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 	if delta.Magnitude > 1.5 then
 		local dir = delta.Unit
 		local speed = cfg.walkSpeed
-		local nextPos = position + dir * math.min(dt * speed, 1.8)
+		local distance = math.min(dt*speed,1.8)
+		local heading = steer(position,dir,distance,math.min(gOff*0.65,2),obstacles)
+		if not heading then m:SetAttribute("MoveSpeed",0); data.nextMove=now+0.4; return end
+		dir = heading
+		local nextPos = position + dir * distance
 		local hit = workspace:Raycast(nextPos + Vector3.yAxis * 10, -Vector3.yAxis * 24, params)
 		if hit and hit.Normal.Y > 0.55 then
 			local ground = hit.Position + Vector3.yAxis * gOff
@@ -635,7 +689,7 @@ local function stepGoliath(m: Model, data: Animal, candidates: {Model}, params: 
 	end
 end
 
-local function stepScavenger(m: Model, data: Animal, playerPoints: {Vector3}, params: RaycastParams, dt: number, now: number)
+local function stepScavenger(m: Model, data: Animal, playerPoints: {Vector3}, params: RaycastParams, obstacles: RaycastParams, dt: number, now: number)
 	local primary = m.PrimaryPart
 	if not primary then return end
 	local position = primary.Position
@@ -654,13 +708,13 @@ local function stepScavenger(m: Model, data: Animal, playerPoints: {Vector3}, pa
 			data.nextRoar = now + 6.0
 			playOneShot3D(primary, SHRIEK_SFX, 0.36, 1.45, 95)
 		end
-		local speed = 21
+		local speed = SPECIES_CONFIG[data.species].chaseSpeed
 		for _, turn in ipairs({ 0, 0.85, -0.85, 1.65, -1.65 }) do
 			local dir = CFrame.Angles(0, turn + math.sin(data.seed + now * 0.6) * 0.14, 0):VectorToWorldSpace(away.Unit)
 			local step = dir * math.min(dt * speed, 2.2)
 			local nextPos = position + step
 			if (nextPos - data.home.Position).Magnitude > 90 then continue end
-			if workspace:Raycast(position, step + dir * 1.8, params) then continue end
+			if workspace:Spherecast(position,math.min(data.groundY*0.55,1.3),step+dir*1.8,obstacles) then continue end
 			local hit = workspace:Raycast(nextPos + Vector3.yAxis * 14, -Vector3.yAxis * 65, params)
 			if hit and hit.Normal.Y > 0.45 and math.abs(hit.Position.Y + data.groundY - position.Y) < 8.5 then
 				local ground = hit.Position + Vector3.yAxis * data.groundY
@@ -684,9 +738,9 @@ local function stepScavenger(m: Model, data: Animal, playerPoints: {Vector3}, pa
 	local delta = Vector3.new(wanderTarget.X - position.X, 0, wanderTarget.Z - position.Z)
 	if delta.Magnitude > 1.2 then
 		local dir = delta.Unit
-		local speed = 5.5
+		local speed = SPECIES_CONFIG[data.species].walkSpeed
 		local nextPos = position + dir * math.min(dt * speed, 0.9)
-		if not workspace:Raycast(position, dir * 1.6, params) then
+		if not workspace:Spherecast(position,math.min(data.groundY*0.55,1.3),dir*1.8,obstacles) then
 			local hit = workspace:Raycast(nextPos + Vector3.yAxis * 14, -Vector3.yAxis * 65, params)
 			if hit and hit.Normal.Y > 0.45 and math.abs(hit.Position.Y + data.groundY - position.Y) < 8.5 then
 				local ground = hit.Position + Vector3.yAxis * data.groundY
@@ -714,6 +768,10 @@ function prey.Start()
 	end)
 	task.spawn(function()
 		local previous = os.clock()
+		local params = makeGroundRaycastParams()
+		local obstacles = RaycastParams.new()
+		obstacles.RespectCanCollide = true
+		obstacles.IgnoreWater = true
 		while true do
 			local now = os.clock()
 			local dt = math.clamp(now - previous, 0.01, 0.4)
@@ -738,7 +796,7 @@ function prey.Start()
 					end
 				end
 
-				local params = makeGroundRaycastParams()
+				obstacles.FilterDescendantsInstances = exclusions
 
 				for m, data in animals do
 					if m.Parent ~= active then
@@ -748,9 +806,9 @@ function prey.Start()
 					occupied[data.home] = true
 					if not m:GetAttribute("IsDead") then
 						if data.tier == 2 or data.species == "SporeCrawler" or data.species == "AcidSpitterDrake" or data.species == "SwampStalkerRaptor" then
-							stepGoliath(m, data, candidates, params, dt, now)
+							stepGoliath(m, data, candidates, params, obstacles, dt, now)
 						else
-							stepScavenger(m, data, positions, params, dt, now)
+							stepScavenger(m, data, positions, params, obstacles, dt, now)
 						end
 					end
 				end

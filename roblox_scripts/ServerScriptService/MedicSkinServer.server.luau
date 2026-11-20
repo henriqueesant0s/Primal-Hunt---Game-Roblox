@@ -149,7 +149,9 @@ local function removeMedicSkin(character: Model)
 		if head then
 			for _, desc in ipairs(head:GetChildren()) do
 				if desc:IsA("Decal") then
-					local val = saved:GetAttribute("Decal_" .. desc.Name)
+					local val = desc:GetAttribute("MedicOriginalTransparency")
+					if val == nil then val = saved:GetAttributes()["Decal_" .. desc.Name] end
+					desc:SetAttribute("MedicOriginalTransparency",nil)
 					if typeof(val) == "number" then
 						desc.Transparency = val
 					end
@@ -161,7 +163,9 @@ local function removeMedicSkin(character: Model)
 			if child:IsA("Accessory") then
 				local handle = child:FindFirstChild("Handle")
 				if handle and handle:IsA("BasePart") then
-					local val = saved:GetAttribute("Acc_" .. child.Name)
+					local val = handle:GetAttribute("MedicOriginalTransparency")
+					if val == nil then val = saved:GetAttributes()["Acc_" .. child.Name] end
+					handle:SetAttribute("MedicOriginalTransparency",nil)
 					if typeof(val) == "number" then
 						handle.Transparency = val
 					end
@@ -207,6 +211,7 @@ local function applyMedicSkin(character: Model)
 		return
 	end
 
+	if character:GetAttribute("MedicSkinActive") == true then return end
 	local template = getTemplate()
 	if not template then
 		if not warnedMissingTemplate then
@@ -244,7 +249,7 @@ local function applyMedicSkin(character: Model)
 	if head then
 		for _, desc in ipairs(head:GetChildren()) do
 			if desc:IsA("Decal") then
-				saved:SetAttribute("Decal_" .. desc.Name, desc.Transparency)
+				desc:SetAttribute("MedicOriginalTransparency", desc.Transparency)
 				desc.Transparency = 1
 			end
 		end
@@ -254,7 +259,7 @@ local function applyMedicSkin(character: Model)
 		if child:IsA("Accessory") then
 			local handle = child:FindFirstChild("Handle")
 			if handle and handle:IsA("BasePart") then
-				saved:SetAttribute("Acc_" .. child.Name, handle.Transparency)
+				handle:SetAttribute("MedicOriginalTransparency", handle.Transparency)
 				handle.Transparency = 1
 			end
 		end
@@ -346,4 +351,3 @@ Players.PlayerAdded:Connect(bindPlayer)
 for _, p in ipairs(Players:GetPlayers()) do
 	bindPlayer(p)
 end
-

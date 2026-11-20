@@ -1,0 +1,93 @@
+--!strict
+export type WeaponSpec = {
+	Id: string,
+	Name: string,
+	Interval: number,
+	Range: number,
+	Damage: number,
+	TraceColor: Color3,
+	TraceThickness: number,
+}
+export type SkillSpec = {
+	Id: string,
+	Label: string,
+	Cooldown: number,
+	Duration: number,
+}
+
+return table.freeze({
+	WeaponId = "PlasmaRifle",
+	ShotInterval = 0.16,
+	ShotRange = 320,
+	ShotDamage = 24,
+	EnhancedWeaponId = "IonRifle",
+	EnhancedDamage = 42,
+	Weapons = table.freeze({
+		PlasmaRifle = table.freeze({
+			Id = "PlasmaRifle",
+			Name = "Rifle de plasma",
+			Interval = 0.16,
+			Range = 320,
+			Damage = 24,
+			TraceColor = Color3.fromRGB(88, 246, 213),
+			TraceThickness = 0.095,
+		}),
+		IonRifle = table.freeze({
+			Id = "IonRifle",
+			Name = "Rifle iônico",
+			Interval = 0.16,
+			Range = 320,
+			Damage = 42,
+			TraceColor = Color3.fromRGB(211, 139, 255),
+			TraceThickness = 0.13,
+		}),
+		BioCarbine = table.freeze({
+			Id = "BioCarbine",
+			Name = "Carabina bio-médica",
+			Interval = 0.20,
+			Range = 300,
+			Damage = 16,
+			TraceColor = Color3.fromRGB(92, 248, 162),
+			TraceThickness = 0.085,
+		}),
+		GaussSMG = table.freeze({
+			Id = "GaussSMG",
+			Name = "Submetralhadora Gauss",
+			Interval = 0.11,
+			Range = 240,
+			Damage = 12,
+			TraceColor = Color3.fromRGB(255, 198, 74),
+			TraceThickness = 0.075,
+		}),
+		LaserCutter = table.freeze({
+			Id = "LaserCutter",
+			Name = "Cortador a laser",
+			Interval = 0.13,
+			Range = 290,
+			Damage = 15,
+			TraceColor = Color3.fromRGB(96, 198, 255),
+			TraceThickness = 0.085,
+		}),
+	}) :: {[string]: WeaponSpec},
+	RoleWeapons = table.freeze({
+		Assault = "PlasmaRifle",
+		Medic = "BioCarbine",
+		Trapper = "GaussSMG",
+		Support = "LaserCutter",
+	}) :: {[string]: string},
+	ClassSkills = table.freeze({
+		Assault = table.freeze({Id = "DrawIonRifle", Label = "RIFLE IÔNICO", Cooldown = 30, Duration = 8}),
+		Medic = table.freeze({Id = "HealingBurst", Label = "PULSO DE CURA", Cooldown = 25, Duration = 0}),
+		Trapper = table.freeze({Id = "PlanetScanner", Label = "SCANNER", Cooldown = 35, Duration = 5}),
+		Support = table.freeze({Id = "ShieldProjector", Label = "PROJETOR", Cooldown = 25, Duration = 8}),
+	}) :: {[string]: SkillSpec},
+	SecondarySkills = table.freeze({
+		Assault = table.freeze({Id = "PersonalMatrix", Label = "ESCUDO", Cooldown = 28, Duration = 8}),
+		Medic = table.freeze({Id = "HealingBeam", Label = "FEIXE MÉDICO", Cooldown = 20, Duration = 6}),
+		Trapper = table.freeze({Id = "HarpoonTether", Label = "ARPÃO", Cooldown = 22, Duration = 6}),
+		Support = table.freeze({Id = "OrbitalBarrage", Label = "BARRAGEM", Cooldown = 30, Duration = 2.6}),
+	}) :: {[string]: SkillSpec},
+	ReviveRange = 8,
+	ReviveSeconds = 4,
+	Hunters = table.freeze({Assault = true, Medic = true, Trapper = true, Support = true}) :: {[string]: boolean},
+})

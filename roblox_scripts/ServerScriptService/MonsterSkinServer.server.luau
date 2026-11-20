@@ -389,4 +389,3 @@ for _, p in ipairs(Players:GetPlayers()) do
 	bindPlayer(p)
 end
 
-

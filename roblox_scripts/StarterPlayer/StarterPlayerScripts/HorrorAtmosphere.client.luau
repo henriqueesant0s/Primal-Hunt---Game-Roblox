@@ -43,7 +43,7 @@ local CONFIG = {
 	GuiName = "ProjectAbyss_HorrorVignette",
 	SpatialAnchorName = "ProjectAbyss_MonsterAudioAnchor",
 	BaseAtmosphereDensity = 0.31,
-	MaxAtmosphereDensity = 0.44,
+	MaxAtmosphereDensity = 0.38,
 	BaseAtmosphereHaze = 2.1,
 	MaxAtmosphereHaze = 3.4,
 	BaseAtmosphereColor = Color3.fromRGB(112, 124, 118),
@@ -51,13 +51,13 @@ local CONFIG = {
 	BaseSaturation = -0.06,
 	MaxDesaturation = -0.35,
 	BaseContrast = 0.18,
-	MaxContrast = 0.28,
+	MaxContrast = 0.16,
 	TensionTintColor = Color3.fromRGB(228, 185, 185),
 	BloomIntensityBase = 0.08,
 	BloomIntensityMax = 0.28,
 	BloomSize = 18,
 	BloomThreshold = 1.45,
-	MaxExposureDelta = -0.35,
+	MaxExposureDelta = -0.17,
 	MaxHeartbeatVolume = 0.85,
 	MaxBreathingVolume = 0.65,
 	BreathingMinRollOff = 10,
@@ -80,22 +80,6 @@ end
 
 local function lerpNumber(a: number, b: number, t: number): number
 	return a + (b - a) * t
-end
-
-local function checkLightingTechnology(): ()
-	local ok = pcall(function()
-		if Lighting.Technology ~= Enum.Technology.Future then
-			Lighting.Technology = Enum.Technology.Future
-		end
-	end)
-	if not ok then
-		print(
-			string.format(
-				"%s Lighting.Technology não é legível/gravável pelo LocalScript em runtime; confirme no Studio que Lighting.Technology = Future.",
-				LOG_PREFIX
-			)
-		)
-	end
 end
 
 local function getOrCreateManagedAtmosphere(): Atmosphere
@@ -185,8 +169,6 @@ local function getOrCreateManagedDOF(): DepthOfFieldEffect
 	return dof
 end
 
-checkLightingTechnology()
-
 local managedAtmosphere = getOrCreateManagedAtmosphere()
 local managedColorCorrection = getOrCreateManagedColorCorrection()
 local managedBloom = getOrCreateManagedBloom()
@@ -253,8 +235,8 @@ local function applyZoneLightingProfile(zone: string): ()
 		Lighting.ClockTime = 15.576
 		Lighting.Brightness = 1.62
 		Lighting.ExposureCompensation = 0.06
-		Lighting.Ambient = Color3.fromRGB(28, 30, 24)
-		Lighting.OutdoorAmbient = Color3.fromRGB(72, 66, 46)
+		Lighting.Ambient = Color3.fromRGB(53, 58, 62)
+		Lighting.OutdoorAmbient = Color3.fromRGB(94, 89, 75)
 		Lighting.ColorShift_Top = Color3.fromRGB(246, 218, 148)
 		Lighting.ColorShift_Bottom = Color3.fromRGB(24, 24, 18)
 		Lighting.ShadowSoftness = 0.22
@@ -264,7 +246,7 @@ local function applyZoneLightingProfile(zone: string): ()
 		end
 		managedAtmosphere.Density = 0.24
 		managedAtmosphere.Offset = 0.12
-		managedAtmosphere.Haze = 8.4
+		managedAtmosphere.Haze = 3.2
 		managedAtmosphere.Color = Color3.fromRGB(168, 140, 62)
 		managedAtmosphere.Decay = Color3.fromRGB(68, 56, 26)
 		managedAtmosphere.Glare = 0.48
@@ -272,13 +254,13 @@ local function applyZoneLightingProfile(zone: string): ()
 		sunRays.Intensity = 0
 		sunRays.Spread = 0.78
 		managedBloom.Enabled = true
-		managedBloom.Intensity = 0.38
+		managedBloom.Intensity = 0.17
 		managedBloom.Size = 48
-		managedBloom.Threshold = 1.06
-		managedColorCorrection.Brightness = -0.02
-		managedColorCorrection.Contrast = 0.18
+		managedBloom.Threshold = 1.42
+		managedColorCorrection.Brightness = 0.02
+		managedColorCorrection.Contrast = 0.08
 		managedColorCorrection.Saturation = -0.18
-		managedColorCorrection.TintColor = Color3.fromRGB(248, 228, 174)
+		managedColorCorrection.TintColor = Color3.fromRGB(250, 241, 220)
 		managedDOF.Enabled = false
 		currentDistance = math.huge
 		currentTension = 0
@@ -318,8 +300,8 @@ local function applyZoneLightingProfile(zone: string): ()
 		managedBloom.Intensity = 0.14
 		managedBloom.Size = 22
 		managedBloom.Threshold = 1.45
-		managedColorCorrection.Brightness = 0.04
-		managedColorCorrection.Contrast = 0.18
+		managedColorCorrection.Brightness = 0.035
+		managedColorCorrection.Contrast = 0.07
 		managedColorCorrection.Saturation = -0.06
 		managedColorCorrection.TintColor = Color3.fromRGB(246, 242, 234)
 		managedDOF.Enabled = true
@@ -975,6 +957,9 @@ local function ensureLobbyAnimCache(): Instance?
 	return lobby
 end
 
+local scannerHead: Model? = nil
+local scannerRest = CFrame.identity
+local scannerNextFrame = 0
 local function updateLobbyAmbientVisuals(nowClock: number): ()
 	local char = localCharacter
 	local role = if char ~= nil then char:GetAttribute("Role") else nil
@@ -987,6 +972,21 @@ local function updateLobbyAmbientVisuals(nowClock: number): ()
 		return
 	end
 
+	if nowClock >= scannerNextFrame then
+		scannerNextFrame = nowClock + 1/30
+		if not scannerHead or not scannerHead:IsDescendantOf(lobby) then
+			local station = lobby:FindFirstChild("ContainmentScanner")
+			local head = if station then station:FindFirstChild("ScanHead") else nil
+			scannerHead = if head and head:IsA("Model") then head else nil
+			if scannerHead and station and station:IsA("Model") then
+				scannerRest = station:GetPivot() * CFrame.new(0.28,6.15,0)
+			end
+		end
+		if scannerHead then
+			local angle = math.rad(12+17*math.sin(workspace:GetServerTimeNow()*2*math.pi/5))
+			scannerHead:PivotTo(scannerRest*CFrame.Angles(0,0,angle))
+		end
+	end
 	local bobOffset = Vector3.new(0, math.sin(nowClock * 1.2) * 0.38, 0)
 	for _, entry in ipairs(cachedSpecimenParts) do
 		if entry.part.Parent ~= nil then
@@ -1239,7 +1239,6 @@ local activeRigLight: Instance? = nil
 local CYCLE_PERIOD_SECONDS = 180 -- Full 24h cycle every 3 minutes in Estuary gameplay
 local cycleAnchorServerTime: number? = nil
 
-local function sampleCycleKeyframes(clockHour: number)
 	-- Keyframes: 6.0 Dawn, 12.5 Day, 16.5 Golden Dusk, 22.0 Playable Biolum Night
 	type KF = { h: number, bright: number, amb: Color3, outAmb: Color3, top: Color3, bot: Color3, dens: number, haze: number, atmoCol: Color3, decay: Color3, tint: Color3, sunInt: number }
 	local keys: {KF} = {
@@ -1250,6 +1249,7 @@ local function sampleCycleKeyframes(clockHour: number)
 		{ h = 20.5, bright = 1.92, amb = Color3.fromRGB(48, 58, 76), outAmb = Color3.fromRGB(74, 88, 108), top = Color3.fromRGB(138, 166, 214), bot = Color3.fromRGB(32, 42, 54), dens = 0.31, haze = 2.2, atmoCol = Color3.fromRGB(78, 96, 118), decay = Color3.fromRGB(96, 128, 168), tint = Color3.fromRGB(224, 234, 248), sunInt = 0.06 },
 		{ h = 24.0, bright = 1.90, amb = Color3.fromRGB(48, 58, 76), outAmb = Color3.fromRGB(74, 88, 108), top = Color3.fromRGB(132, 162, 212), bot = Color3.fromRGB(32, 42, 54), dens = 0.31, haze = 2.2, atmoCol = Color3.fromRGB(78, 96, 118), decay = Color3.fromRGB(96, 128, 168), tint = Color3.fromRGB(224, 234, 248), sunInt = 0.06 },
 	}
+	local function sampleCycleKeyframes(clockHour: number)
 	local k0, k1 = keys[1], keys[#keys]
 	for i = 1, #keys - 1 do
 		if clockHour >= keys[i].h and clockHour <= keys[i + 1].h then
@@ -1275,7 +1275,9 @@ local function updateHorrorHuntAmbience(nowClock: number)
 		if cycleAnchorServerTime == nil then
 			cycleAnchorServerTime = Workspace:GetServerTimeNow()
 		end
-		local elapsedCycle = math.max(0, Workspace:GetServerTimeNow() - (cycleAnchorServerTime :: number))
+		local epoch = Workspace:GetAttribute("HuntLightingEpoch")
+		local anchor = if typeof(epoch)=="number" then epoch else (cycleAnchorServerTime :: number)
+		local elapsedCycle = math.max(0, Workspace:GetServerTimeNow() - anchor)
 		local clockHour = (16.2 + (elapsedCycle / CYCLE_PERIOD_SECONDS) * 24.0) % 24.0
 		local k0, k1, a, phaseLabel, nf = sampleCycleKeyframes(clockHour)
 		nightStrength = nf
@@ -1288,7 +1290,11 @@ local function updateHorrorHuntAmbience(nowClock: number)
 		baseAtmoHaze = lerpNumber(k0.haze, k1.haze, a)
 		baseAtmoColor = k0.atmoCol:Lerp(k1.atmoCol, a)
 		baseColorTint = k0.tint:Lerp(k1.tint, a)
-		baseExposureCompensation = 0.22
+		baseExposureCompensation = 0.25 + 0.18 * nf
+		baseAmbient = baseAmbient:Lerp(Color3.fromRGB(89,99,114),0.46*nf)
+		baseOutdoorAmbient = baseOutdoorAmbient:Lerp(Color3.fromRGB(113,126,144),0.42*nf)
+		Lighting.ColorShift_Top = k0.top:Lerp(k1.top,a)
+		Lighting.ColorShift_Bottom = k0.bot:Lerp(k1.bot,a)
 		if currentMidDanger <= 0.005 and currentTension <= 0.005 then
 			Lighting.Ambient = baseAmbient
 			Lighting.OutdoorAmbient = baseOutdoorAmbient
@@ -1364,7 +1370,7 @@ local function updateHorrorHuntAmbience(nowClock: number)
 		pl.Brightness = 1.35
 		pl.Range = 64
 		pl.Shadows = false
-		pl.Color = Color3.fromRGB(255, 118, 78)
+		pl.Color = Color3.fromRGB(255, 194, 150)
 		pl.Parent = localRoot
 		activeRigLight = pl
 	end
@@ -1409,7 +1415,6 @@ table.insert(
 	RunService.Heartbeat:Connect(function(dt: number)
 		local nowClock = os.clock()
 		updateLobbyAmbientVisuals(nowClock)
-		updateHorrorHuntAmbience(nowClock)
 
 		proximityAccumulator += dt
 		if proximityAccumulator >= CONFIG.ProximityCheckInterval then
@@ -1417,6 +1422,7 @@ table.insert(
 			local lChar = localCharacter
 			local lRole = if lChar then lChar:GetAttribute("Role") else nil
 			applyZoneLightingProfile(resolveTargetLightingZone(lRole, localRoot))
+			updateHorrorHuntAmbience(nowClock)
 			updateOilPatchFootstepMuffle()
 			evaluateMonsterProximity()
 		end
@@ -1496,4 +1502,3 @@ vignetteGui.Destroying:Connect(function()
 		characterConnections[char] = nil
 	end
 end)
-

@@ -1,5 +1,7 @@
 # PRIMAL HUNT — Devlog Completo & Documentação Técnica (Discord + GitHub)
 
+> 🆕 **Atualização mais recente (v158):** veja [DEVLOG_V158_ABYSS_ARTKIT_AND_COMBAT_POLISH.md](DEVLOG_V158_ABYSS_ARTKIT_AND_COMBAT_POLISH.md). Este arquivo documenta a versão v149.
+
 > **Projeto:** `PRIMAL HUNT` (`PlaceId: 81193971554826` · `UniverseId: 10777423056` · Roblox Team Create `v149`)  
 > **Status:** 🚧 **Em Desenvolvimento Ativo (WIP / Pre-Alpha)**  
 > **Desenvolvedores:** Henrique Santos, Alan Vinicius e Thiago Zarotti  

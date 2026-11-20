@@ -77,7 +77,7 @@ captionLabel.TextScaled = true
 captionLabel.Text = ""
 captionLabel.Parent = bottomBar
 
-local subLabel = Instance.new("TextLabel")
+local subLabel = Instance.new("TextButton")
 subLabel.Name = "CinemaSkipHint"
 subLabel.Size = UDim2.fromScale(0.45, 0.42)
 subLabel.Position = UDim2.fromScale(0.275, 0.36)
@@ -85,7 +85,14 @@ subLabel.BackgroundTransparency = 1
 subLabel.Font = Enum.Font.GothamMedium
 subLabel.TextColor3 = Color3.fromRGB(168, 174, 182)
 subLabel.TextScaled = true
-subLabel.Text = "[Backspace] Pular Cena"
+subLabel.AutoButtonColor = false
+subLabel.Text = if UserInputService.PreferredInput==Enum.PreferredInput.Touch then "Pular cena" else "Pular cena  [Backspace]"
+local skipSize = Instance.new("UITextSizeConstraint")
+skipSize.MaxTextSize = 18
+skipSize.Parent = subLabel
+local captionSize = Instance.new("UITextSizeConstraint")
+captionSize.MaxTextSize = 26
+captionSize.Parent = captionLabel
 subLabel.Parent = topBar
 
 local activeToken = 0
@@ -107,6 +114,8 @@ local function playCinemaSound(soundId: string, volume: number, speed: number)
 end
 
 local function setBarsVisible(visible: boolean, titleText: string?)
+	localPlayer:SetAttribute("AbyssCinemaActive",visible)
+	subLabel.Active=visible
 	if titleText then
 		captionLabel.Text = titleText
 	end
@@ -145,6 +154,9 @@ local function stopCutscene(restoreCamera: boolean)
 	end
 end
 
+subLabel.Activated:Connect(function()
+	if activeRenderConn then stopCutscene(true) end
+end)
 UserInputService.InputBegan:Connect(function(input, processed)
 	if processed then return end
 	if input.KeyCode == Enum.KeyCode.Backspace and activeRenderConn ~= nil then

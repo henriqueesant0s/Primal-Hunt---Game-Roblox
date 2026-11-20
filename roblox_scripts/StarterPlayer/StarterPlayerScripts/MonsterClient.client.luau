@@ -16,6 +16,7 @@ local tracks=workspace:WaitForChild("Footprints")
 local hunters: {[string]: boolean}={Assault=true,Medic=true,Trapper=true,Support=true}
 local keys: {[Enum.KeyCode]: string}={[Enum.KeyCode.One]="LeapSmash",[Enum.KeyCode.Two]="FeralCharge",[Enum.KeyCode.Three]="AcidBreath"}
 local heldEat,heldEvolve,heldStealth=false,false,false
+local deck = require(RS:WaitForChild("MonsterFieldDeck"))
 local lastPulse=-math.huge
 local channelStart=0
 local channelName=""
@@ -104,7 +105,7 @@ local function createScentBeam(fromRoot: BasePart, toPart: BasePart, color: Colo
 end
 local function smell(c: Model)
 	local now = os.clock()
-	if now - lastPulse < 4.5 then return end
+	if now - lastPulse < deck.SmellCooldown then return end
 	lastPulse = now
 	clearPulse()
 
@@ -201,43 +202,59 @@ local function closest(origin: Vector3): Model?
 	end
 	return best
 end
-Input.InputBegan:Connect(function(input,processed)
-	if Input:GetFocusedTextBox() ~= nil then return end
-	if processed and input.KeyCode ~= Enum.KeyCode.Q then return end
-	local c=monster()
-	if not c then return end
-	local key=input.KeyCode
-	local skill=keys[key]
-	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		local origin = c:GetPivot().Position
-		local aim = mouse.Hit.Position - origin
-		skills:FireServer("ClawSlash", origin + (if aim.Magnitude > 80 then aim.Unit * 80 else aim))
-	elseif skill then
-		local origin=c:GetPivot().Position
-		local aim=mouse.Hit.Position-origin
-		skills:FireServer(skill,origin+(if aim.Magnitude>80 then aim.Unit*80 else aim))
-	elseif key==Enum.KeyCode.E and not heldEat then
-		local prey=closest(c:GetPivot().Position)
-		if prey then heldEat=true eat:FireServer(prey) end
-	elseif key==Enum.KeyCode.V and not heldEvolve then
+local function beginAction(id: string, fromDeck: boolean)
+	local c = monster()
+	if not c or Input:GetFocusedTextBox() then return end
+	local origin = c:GetPivot().Position
+	if id == "ClawSlash" or id == "LeapSmash" or id == "FeralCharge" or id == "AcidBreath" then
+		local aim = mouse.Hit.Position-origin
+		local cam = workspace.CurrentCamera
+		if fromDeck and cam then
+			local ray = cam:ViewportPointToRay(cam.ViewportSize.X/2,cam.ViewportSize.Y/2)
+			local query = RaycastParams.new()
+			query.FilterDescendantsInstances = {c}
+			local hit = workspace:Raycast(ray.Origin,ray.Direction*180,query)
+			aim = (if hit then hit.Position else ray.Origin+ray.Direction*80)-origin
+		end
+		skills:FireServer(id,origin+(if aim.Magnitude>80 then aim.Unit*80 else aim))
+	elseif id=="Eat" and not heldEat then
+		local prey=closest(origin)
+		if prey then heldEat=true; eat:FireServer(prey) end
+	elseif id=="Evolve" and not heldEvolve then
 		heldEvolve=true
 		evolve:FireServer(true)
-	elseif key==Enum.KeyCode.LeftControl and not heldStealth then
+	elseif id=="Stealth" and not heldStealth then
 		heldStealth=true
 		skills:FireServer("StealthOn",Vector3.zero)
-	elseif key==Enum.KeyCode.Q then
+	elseif id=="Smell" then
 		smell(c)
-	elseif key==Enum.KeyCode.Space then
+	elseif id=="Climb" then
 		local h=c:FindFirstChildOfClass("Humanoid")
 		if h and h.FloorMaterial==Enum.Material.Air then skills:FireServer("Climb",Vector3.zero) end
 	end
-end)
-local function release(key: Enum.KeyCode?)
-	if heldEat and (not key or key==Enum.KeyCode.E) then heldEat=false skills:FireServer("CancelEat",Vector3.zero) end
-	if heldEvolve and (not key or key==Enum.KeyCode.V) then heldEvolve=false evolve:FireServer(false) end
-	if heldStealth and (not key or key==Enum.KeyCode.LeftControl) then heldStealth=false skills:FireServer("StealthOff",Vector3.zero) end
 end
-Input.InputEnded:Connect(function(input) release(input.KeyCode) end)
+local function release(id: string?)
+	if heldEat and (not id or id=="Eat") then heldEat=false; skills:FireServer("CancelEat",Vector3.zero) end
+	if heldEvolve and (not id or id=="Evolve") then heldEvolve=false; evolve:FireServer(false) end
+	if heldStealth and (not id or id=="Stealth") then heldStealth=false; skills:FireServer("StealthOff",Vector3.zero) end
+end
+keys[Enum.KeyCode.E]="Eat"
+keys[Enum.KeyCode.V]="Evolve"
+keys[Enum.KeyCode.LeftControl]="Stealth"
+keys[Enum.KeyCode.Q]="Smell"
+keys[Enum.KeyCode.Space]="Climb"
+Input.InputBegan:Connect(function(input,processed)
+	if processed and input.KeyCode~=Enum.KeyCode.Q then return end
+	local id = if input.UserInputType==Enum.UserInputType.MouseButton1 then "ClawSlash" else keys[input.KeyCode]
+	if id then beginAction(id,false) end
+end)
+Input.InputEnded:Connect(function(input)
+	local id=keys[input.KeyCode]
+	if id then release(id) end
+end)
+deck.Input.Event:Connect(function(id: string, down: boolean)
+	if down then beginAction(id,true) else release(id) end
+end)
 Input.WindowFocusReleased:Connect(function() release(nil) end)
 player.CharacterRemoving:Connect(function() release(nil) clearPulse() end)
 

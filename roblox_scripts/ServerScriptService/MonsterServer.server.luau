@@ -6,6 +6,7 @@ local Debris = game:GetService("Debris")
 local TweenService = game:GetService("TweenService")
 local Damage = require(script.Parent.DamageService)
 local Prey = require(script.Parent.PreyManager)
+local Motion = require(RS:WaitForChild("AbyssCombatMotion"))
 local remotes = RS.Remotes.MonsterRemotes
 local gameEvents = RS.Remotes.GameRemotes
 local relay = workspace.Map.PowerRelay
@@ -55,6 +56,7 @@ local function finish(s: Session)
 	end
 	s.action=nil
 	s.body:SetAttribute("MonsterAction",nil)
+	s.body:SetAttribute("MonsterImpactAt",nil)
 end
 local function remove(p: Player)
 	local s=sessions[p]
@@ -227,6 +229,8 @@ local function leap(s: Session, target: Vector3)
 			local length=s.humanoid.HipHeight+s.root.Size.Y/2+.85
 			local floor=workspace:Raycast(s.root.Position,-Vector3.yAxis*math.max(3.5,length),rays(s.body))
 			if floor and floor.Normal.Y>.45 then
+				if s.motor then s.motor:Destroy(); s.motor=nil end
+				s.root.AssemblyLinearVelocity = Vector3.yAxis * s.root.AssemblyLinearVelocity.Y
 				strike(s,s.root.Position,15,55,{},nil,0,false)
 				pulse(floor.Position,30,Color3.fromRGB(255,154,74))
 				playMonsterSFX(s.root, SLAM_IMPACT_SFX, 1.0, 0.78, 320)
@@ -359,7 +363,7 @@ remotes.UseMonsterSkill.OnServerEvent:Connect(function(p: Player, name: any, tar
 	end
 	if not cooldown[name] or now<(s.deadlines[name] or 0) or s.body:GetAttribute("IsStealth") then return end
 	local stamina=s.body:GetAttribute("Stamina")
-	if typeof(stamina)~="number" or stamina<costs[name] then return end
+	if typeof(stamina)~="number" then return end
 	if name=="LeapSmash" and (s.humanoid.FloorMaterial==Enum.Material.Air or (target-s.root.Position).Magnitude>500) then return end
 	local climbWallHit: RaycastResult? = nil
 	local isTaggedClimbable = false
@@ -386,8 +390,14 @@ remotes.UseMonsterSkill.OnServerEvent:Connect(function(p: Player, name: any, tar
 	s.deadlines[name]=now+actualCooldown
 	s.body:SetAttribute("Stamina",stamina-actualCost)
 	s.action=name
+	local windup = Motion.monsterLead[name]
+	if windup then s.body:SetAttribute("MonsterImpactAt",workspace:GetServerTimeNow()+windup) end
 	s.body:SetAttribute("MonsterAction",name)
 	local ok,err=pcall(function()
+		if windup then
+			task.wait(windup)
+			if not active(s,name) then return end
+		end
 		if name=="LeapSmash" then leap(s,target)
 		elseif name=="FeralCharge" then charge(s)
 		elseif name=="AcidBreath" then acid(s)
@@ -434,7 +444,7 @@ remotes.EvolveStage.OnServerEvent:Connect(function(p: Player, start: any)
 		or s.body:GetAttribute("EvolutionEnergy")<100 then return end
 	local nestPos, nestDist = findNearestNest(s.root.Position)
 	if not nestPos or nestDist > NEST_EVOLVE_RADIUS then
-		gameEvents.UpdateUI:FireClient(p, "MonsterNestRequired", { nestPos = nestPos or Vector3.zero, dist = math.round(nestDist) })
+		gameEvents.UpdateUI:FireClient(p, "MonsterNestRequired", { nestPos = nestPos or Vector3.zero, dist = if nestPos then math.round(nestDist) else 0 })
 		playMonsterSFX(s.root, "rbxassetid://9114787480", 0.72, 0.78, 180)
 		return
 	end

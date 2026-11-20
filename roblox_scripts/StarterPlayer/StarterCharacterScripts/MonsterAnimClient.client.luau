@@ -3,12 +3,12 @@ local Debris = game:GetService("Debris")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
+local Motion = require(game:GetService("ReplicatedStorage"):WaitForChild("AbyssCombatMotion"))
 local character = script.Parent :: Model
 local humanoid = character:WaitForChild("Humanoid") :: Humanoid
 local rootPart = character:WaitForChild("HumanoidRootPart") :: BasePart
 
 local STEP_SFX = "rbxassetid://9114362401"
-local SLASH_SFX = "rbxassetid://9119073323"
 local BREATH_SFX = "rbxassetid://9119386548"
 
 local MOTOR_NAMES = {
@@ -22,7 +22,6 @@ local motors: { [string]: Motor6D } = {}
 local currentPoses: { [string]: CFrame } = {}
 local lastAction = ""
 local actionStarted = 0
-local slashParity = 1
 local stridePhase = 0
 local lastStepQuarter = -1
 
@@ -80,17 +79,28 @@ breatheLoop.Parent = rootPart
 local LocalPlayer = Players.LocalPlayer
 local appliedCamZoom = false
 local syncedStageCam = 0
+local previousMinZoom = 0.5
+local previousMaxZoom = 68
+local function restoreZoom()
+	if appliedCamZoom and LocalPlayer and LocalPlayer.Character == character then
+		appliedCamZoom = false
+		syncedStageCam = 0
+		LocalPlayer.CameraMinZoomDistance = previousMinZoom
+		LocalPlayer.CameraMaxZoomDistance = previousMaxZoom
+		humanoid.CameraOffset = Vector3.zero
+	end
+end
+if LocalPlayer then
+	local removing: RBXScriptConnection
+	removing = LocalPlayer.CharacterRemoving:Connect(function(leaving)
+		if leaving==character then restoreZoom(); removing:Disconnect() end
+	end)
+end
 character:GetAttributeChangedSignal("Role"):Connect(function()
 	if character:GetAttribute("Role") ~= "Monster" then
 		table.clear(motors)
 		table.clear(currentPoses)
-		if appliedCamZoom and LocalPlayer and LocalPlayer.Character == character then
-			appliedCamZoom = false
-			syncedStageCam = 0
-			LocalPlayer.CameraMaxZoomDistance = 12
-			LocalPlayer.CameraMinZoomDistance = 0.5
-			humanoid.CameraOffset = Vector3.zero
-		end
+		restoreZoom()
 		if breatheLoop.IsPlaying then
 			breatheLoop:Stop()
 		end
@@ -120,11 +130,13 @@ RunService.Stepped:Connect(function(_, dt: number)
 	if LocalPlayer and LocalPlayer.Character == character then
 		if not appliedCamZoom then
 			appliedCamZoom = true
-			LocalPlayer.CameraMaxZoomDistance = 68
-			LocalPlayer.CameraMinZoomDistance = 14
+			previousMinZoom = LocalPlayer.CameraMinZoomDistance
+			previousMaxZoom = LocalPlayer.CameraMaxZoomDistance
+			LocalPlayer.CameraMaxZoomDistance = math.max(84,previousMaxZoom)
 		end
 		if syncedStageCam ~= stage then
 			syncedStageCam = stage
+			LocalPlayer.CameraMinZoomDistance = if stage >= 3 then 46 elseif stage == 2 then 40 else 32
 			local targetCamY = if stage >= 3 then 11.2 elseif stage == 2 then 8.5 else 6.2
 			humanoid.CameraOffset = Vector3.new(0, targetCamY, 0)
 		end
@@ -146,10 +158,7 @@ RunService.Stepped:Connect(function(_, dt: number)
 	if action ~= lastAction then
 		lastAction = action
 		actionStarted = now
-		if action == "ClawSlash" then
-			slashParity = -slashParity
-			playSpatialSFX(SLASH_SFX, 0.72, 0.72 + (math.random() * 0.14), 14, 140)
-		end
+
 	end
 
 	breatheLoop.Volume = if isStealth then 0.06 else (0.18 + stage * 0.04)
@@ -422,7 +431,18 @@ RunService.Stepped:Connect(function(_, dt: number)
 		setTentacles(now * 2.1, 14, -12, b * 0.15)
 	end
 
-	local alpha = math.clamp(dt * blendRate, 0, 1)
+	local lead = Motion.monsterLead[action]
+	local impact = character:GetAttribute("MonsterImpactAt")
+	if lead and typeof(impact)=="number" then
+		local phase = 1+(workspace:GetServerTimeNow()-impact)/lead
+		local neck,arms,crown = Motion.monster(action,phase)
+		target.NeckMotor *= rot(neck,0,0)
+		target.ShoulderUpLMotor *= rot(arms,0,-arms*.25)
+		target.ShoulderUpRMotor *= rot(arms,0,arms*.25)
+		target.CrownLMotor *= rot(0,0,crown)
+		target.CrownRMotor *= rot(0,0,-crown)
+	end
+	local alpha = 1 - math.exp(-dt * blendRate)
 	for _, mName in ipairs(MOTOR_NAMES) do
 		local m = motors[mName]
 		if m then
@@ -434,5 +454,4 @@ RunService.Stepped:Connect(function(_, dt: number)
 		end
 	end
 end)
-
 

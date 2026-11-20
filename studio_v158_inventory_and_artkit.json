@@ -1,0 +1,282 @@
+{
+  "placeId": 81193971554826,
+  "universeId": 10777423056,
+  "placeVersion": 158,
+  "abyssArtKit": [
+    {
+      "node": "AbyssFace_Node",
+      "meshId": "rbxassetid://93721243047594"
+    },
+    {
+      "node": "EstuaryBasalt_1_Node",
+      "meshId": "rbxassetid://94362563714394"
+    },
+    {
+      "node": "Crown_1_L_Node",
+      "meshId": "rbxassetid://106480058086091"
+    },
+    {
+      "node": "Crown_1_R_Node",
+      "meshId": "rbxassetid://78009878224827"
+    },
+    {
+      "node": "Crown_2_L_Node",
+      "meshId": "rbxassetid://133536448577810"
+    },
+    {
+      "node": "HangarFanRotor_Node",
+      "meshId": "rbxassetid://110977782115716"
+    },
+    {
+      "node": "Crown_2_R_Node",
+      "meshId": "rbxassetid://126479021982899"
+    },
+    {
+      "node": "Crown_3_L_Node",
+      "meshId": "rbxassetid://117982754511095"
+    },
+    {
+      "node": "Crown_3_R_Node",
+      "meshId": "rbxassetid://91073212351500"
+    },
+    {
+      "node": "EstuaryBasalt_2_Node",
+      "meshId": "rbxassetid://103121064445824"
+    },
+    {
+      "node": "EstuaryBasalt_3_Node",
+      "meshId": "rbxassetid://137745323224854"
+    },
+    {
+      "node": "HangarFanCasing_Node",
+      "meshId": "rbxassetid://93494057582249"
+    },
+    {
+      "node": "Head_Boar_Node",
+      "meshId": "rbxassetid://95363795237496"
+    },
+    {
+      "node": "Head_Ceratops_Node",
+      "meshId": "rbxassetid://90243158592148"
+    },
+    {
+      "node": "Head_Cragback_Node",
+      "meshId": "rbxassetid://133969642225449"
+    },
+    {
+      "node": "Head_Crawler_Node",
+      "meshId": "rbxassetid://117581936893032"
+    },
+    {
+      "node": "Head_Croco_Node",
+      "meshId": "rbxassetid://90138113421227"
+    },
+    {
+      "node": "Head_Drake_Node",
+      "meshId": "rbxassetid://132499921651829"
+    },
+    {
+      "node": "Head_Goliath_Node",
+      "meshId": "rbxassetid://99585512470375"
+    },
+    {
+      "node": "Head_Mantis_Node",
+      "meshId": "rbxassetid://76153338180750"
+    },
+    {
+      "node": "Head_Raptor_Node",
+      "meshId": "rbxassetid://135307517945434"
+    },
+    {
+      "node": "Head_Scavenger_Node",
+      "meshId": "rbxassetid://95542895015546"
+    },
+    {
+      "node": "RelayFluxRotor_Node",
+      "meshId": "rbxassetid://131372487895543"
+    },
+    {
+      "node": "RelayShieldTile_Node",
+      "meshId": "rbxassetid://92001038251217"
+    }
+  ],
+  "faunaTemplates": [
+    {
+      "name": "RedGoliath3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Goliath3D_Head_Armor",
+          "meshId": "rbxassetid://99585512470375"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Goliath3D_Head_Magma",
+          "meshId": "rbxassetid://111398958081857"
+        }
+      ]
+    },
+    {
+      "name": "CoastalScavenger3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Scavenger3D_Head_Armor",
+          "meshId": "rbxassetid://95542895015546"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Scavenger3D_Head_Glow",
+          "meshId": "rbxassetid://73322158168685"
+        }
+      ]
+    },
+    {
+      "name": "SporeCrawler3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "SporeCrawler3D_Head_SporeGlow",
+          "meshId": "rbxassetid://88921801499737"
+        },
+        {
+          "class": "MeshPart",
+          "name": "SporeCrawler3D_Head_Armor",
+          "meshId": "rbxassetid://117581936893032"
+        }
+      ]
+    },
+    {
+      "name": "AcidSpitterDrake3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "AcidDrake3D_Head_Venom",
+          "meshId": "rbxassetid://132769952200223"
+        },
+        {
+          "class": "MeshPart",
+          "name": "AcidDrake3D_Head_Armor",
+          "meshId": "rbxassetid://132499921651829"
+        }
+      ]
+    },
+    {
+      "name": "ObsidianCragback3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Cragback3D_Head_Magma",
+          "meshId": "rbxassetid://108312565390051"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Cragback3D_Head_Armor",
+          "meshId": "rbxassetid://133969642225449"
+        }
+      ]
+    },
+    {
+      "name": "SwampStalkerRaptor3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Raptor3D_Head_Glow",
+          "meshId": "rbxassetid://104428223026676"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Raptor3D_Head_Armor",
+          "meshId": "rbxassetid://135307517945434"
+        }
+      ]
+    },
+    {
+      "name": "ThornbackBoar3DTemplate",
+      "descendants": 42,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Boar3D_Head_Armor",
+          "meshId": "rbxassetid://95363795237496"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Boar3D_Head_Glow",
+          "meshId": "rbxassetid://122355094442365"
+        }
+      ]
+    },
+    {
+      "name": "BiolumMantisStalker3DTemplate",
+      "descendants": 42,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Mantis3D_Head_Armor",
+          "meshId": "rbxassetid://76153338180750"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Mantis3D_Head_Glow",
+          "meshId": "rbxassetid://75534628015306"
+        }
+      ]
+    },
+    {
+      "name": "MireCrocoSnapper3DTemplate",
+      "descendants": 42,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Croc3D_Head_Armor",
+          "meshId": "rbxassetid://90138113421227"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Croc3D_Head_Glow",
+          "meshId": "rbxassetid://127308104884200"
+        }
+      ]
+    },
+    {
+      "name": "HornedCeratopsBull3DTemplate",
+      "descendants": 44,
+      "headMeshes": [
+        {
+          "class": "MeshPart",
+          "name": "Ceratops3D_Head_Glow",
+          "meshId": "rbxassetid://131708072589442"
+        },
+        {
+          "class": "MeshPart",
+          "name": "Ceratops3D_Head_Armor",
+          "meshId": "rbxassetid://90243158592148"
+        }
+      ]
+    }
+  ],
+  "monsterTemplate": {
+    "name": "AbyssMonsterArticulatedTemplate",
+    "descendants": 235,
+    "crownMotors": [
+      "CrownLMotor",
+      "CrownRMotor"
+    ]
+  },
+  "abyssArtRotors": [
+    "Workspace.Map.PowerRelay.FluxAssembly.FluxRing_1",
+    "Workspace.Lobby.Ventilation.FanRotor_1_1",
+    "Workspace.Lobby.Ventilation.FanRotor_2_-1",
+    "Workspace.Map.PowerRelay.FluxAssembly.FluxRing_2",
+    "Workspace.Lobby.Ventilation.FanRotor_2_1",
+    "Workspace.Lobby.Ventilation.FanRotor_1_-1"
+  ],
+  "containmentScannerParts": 37
+}

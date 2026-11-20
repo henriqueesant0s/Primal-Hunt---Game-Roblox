@@ -310,4 +310,3 @@ RunService.Heartbeat:Connect(function()
 		progressFill.Size = UDim2.fromScale(0, 1)
 	end
 end)
-

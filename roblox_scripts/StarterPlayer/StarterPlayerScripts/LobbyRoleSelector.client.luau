@@ -1864,4 +1864,3 @@ screenGui.Destroying:Connect(function()
 	table.clear(connections)
 end)
 
-

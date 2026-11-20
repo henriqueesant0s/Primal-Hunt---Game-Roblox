@@ -197,6 +197,11 @@ crtLayer.root.Visible = false
 
 local hudCanvas, getHudScale = AEM_UIKit.createScaledCanvas(screenGui, "TacticalHUDCanvas", 6)
 local toastCanvas, _ = AEM_UIKit.createScaledCanvas(screenGui, "ToastScaledCanvas", 36)
+local function syncCinemaVisibility()
+	hudCanvas.Visible = LocalPlayer:GetAttribute("AbyssCinemaActive") ~= true
+end
+LocalPlayer:GetAttributeChangedSignal("AbyssCinemaActive"):Connect(syncCinemaVisibility)
+syncCinemaVisibility()
 
 -- Silencia o ScreenGui legado MonsterControls (sem destruir lógica de MonsterClient)
 local function suppressLegacyMonsterGui(): ()
@@ -274,10 +279,10 @@ local matchStatusLabel = AEM_UIKit.makeMonoLabel({
 	parent = matchStatusBar,
 	size = UDim2.fromScale(0.96, 0.90),
 	position = UDim2.fromScale(0.02, 0.05),
-	text = "CONTAINMENT HUNT // 00:00",
-	color = AEM_UIKit.AMBER_SOFT,
+	text = "CAÇA  ·  00:00",
+	color = AEM_UIKit.IVORY_TEXT,
 	alignX = Enum.TextXAlignment.Center,
-	textSize = 12,
+	textSize = 17,
 	zIndex = 13,
 })
 
@@ -1552,10 +1557,10 @@ local monsterTopBar = AEM_UIKit.createWireBracketFrame(monsterHudRoot, {
 	parent = monsterHudRoot,
 	anchorPoint = Vector2.new(0.5, 0),
 	position = UDim2.new(0.5, 0, 0, 128),
-	size = UDim2.fromOffset(440, 26),
-	bgColor = AEM_UIKit.VOID_GLASS,
-	bgTransparency = 0.84,
-	bracketColor = AEM_UIKit.BOSS_CRIMSON,
+	size = UDim2.fromOffset(440, 38),
+	bgColor = Color3.fromRGB(23,32,35),
+	bgTransparency = 0.12,
+	bracketColor = Color3.fromRGB(255,194,116),
 	bracketThickness = 1.2,
 	bracketLength = 10,
 	mode = "LeftRight",
@@ -1565,23 +1570,23 @@ local monsterTopBar = AEM_UIKit.createWireBracketFrame(monsterHudRoot, {
 local monsterStageBadge = AEM_UIKit.makeMonoLabel({
 	name = "StageBadge",
 	parent = monsterTopBar,
-	size = UDim2.fromScale(0.44, 0.84),
+	size = UDim2.fromScale(0.31, 0.84),
 	position = UDim2.fromScale(0.04, 0.08),
-	text = "BIOMASS // STAGE I",
-	color = AEM_UIKit.AMBER_SOFT,
+	text = "ESTÁGIO I",
+	color = AEM_UIKit.IVORY_TEXT,
 	font = AEM_UIKit.FONT_TECH,
 	weight = Enum.FontWeight.Bold,
-	textSize = 12,
+	textSize = 18,
 	zIndex = 13,
 })
 AEM_UIKit.makeMonoLabel({
 	name = "BiomassPrefix",
 	parent = monsterTopBar,
-	size = UDim2.fromScale(0.09, 0.84),
-	position = UDim2.fromScale(0.49, 0.08),
-	text = "BIO",
+	size = UDim2.fromScale(0.27, 0.84),
+	position = UDim2.fromScale(0.31, 0.08),
+	text = "BIOMASSA",
 	color = AEM_UIKit.AMBER_WIRE,
-	textSize = 12,
+	textSize = 18,
 	zIndex = 13,
 })
 local monsterBioSegBar = AEM_UIKit.createSlimBar({
@@ -1602,7 +1607,7 @@ local monsterBiomassText = AEM_UIKit.makeMonoLabel({
 	text = "0%",
 	color = AEM_UIKit.AMBER_GLOW,
 	alignX = Enum.TextXAlignment.Right,
-	textSize = 13,
+	textSize = 18,
 	zIndex = 13,
 })
 
@@ -1794,7 +1799,8 @@ local monsterBiometrics = AEM_UIKit.createWireBracketFrame(monsterHudRoot, {
 	anchorPoint = Vector2.new(0, 1),
 	position = UDim2.new(0, 28, 1, -24),
 	size = UDim2.fromOffset(264, 114),
-	bgTransparency = 1,
+	bgColor = Color3.fromRGB(23,32,35),
+	bgTransparency = 0.18,
 	bracketColor = AEM_UIKit.BOSS_CRIMSON,
 	bracketThickness = 1.4,
 	bracketLength = 10,
@@ -1809,8 +1815,8 @@ AEM_UIKit.makeMonoLabel({
 	parent = monsterBiometrics,
 	size = UDim2.fromOffset(240, 16),
 	position = UDim2.fromOffset(10, 2),
-	text = "FLESH BIOMETRICS",
-	color = AEM_UIKit.BOSS_CRIMSON,
+	text = "SINAIS VITAIS",
+	color = Color3.fromRGB(255,194,116),
 	font = AEM_UIKit.FONT_TECH,
 	weight = Enum.FontWeight.Bold,
 	textSize = 12,
@@ -1836,7 +1842,7 @@ local monsterArmorGauge = AEM_UIKit.createSlantedGauge(monsterBiometrics, {
 	parent = monsterBiometrics,
 	position = UDim2.fromOffset(10, 50),
 	size = UDim2.fromOffset(252, 24),
-	labelLeftText = "ARMOR",
+	labelLeftText = "ARMADURA",
 	labelRightText = "600 / 600",
 	fillColor = AEM_UIKit.AMBER_GLOW,
 	glowColor = AEM_UIKit.AMBER_WIRE,
@@ -1850,7 +1856,7 @@ local monsterStamGauge = AEM_UIKit.createSlantedGauge(monsterBiometrics, {
 	parent = monsterBiometrics,
 	position = UDim2.fromOffset(10, 80),
 	size = UDim2.fromOffset(252, 24),
-	labelLeftText = "STAMINA",
+	labelLeftText = "VIGOR",
 	labelRightText = "100%",
 	fillColor = AEM_UIKit.AMBER_WIRE,
 	glowColor = AEM_UIKit.AMBER_WIRE,
@@ -1860,39 +1866,8 @@ local monsterStamGauge = AEM_UIKit.createSlantedGauge(monsterBiometrics, {
 })
 
 -- Canto Inferior Direito do Monstro: Bandeja de 8 Habilidades Chamfradas
-local monsterAbilityTray = Instance.new("Frame")
-monsterAbilityTray.Name = "MonsterAbilityTray"
-monsterAbilityTray.AnchorPoint = Vector2.new(1, 1)
-monsterAbilityTray.Position = UDim2.new(1, -24, 1, -22)
-monsterAbilityTray.Size = UDim2.fromOffset(772, 92)
-monsterAbilityTray.BackgroundTransparency = 1
-monsterAbilityTray.BorderSizePixel = 0
-monsterAbilityTray.ClipsDescendants = false
-monsterAbilityTray.ZIndex = 12
-monsterAbilityTray.Parent = monsterHudRoot
-
-local function makeMonsterBadge(idx: number, badgeName: string, label: string, glyph: string, keybind: string): AEM_UIKit.ChamferedAbilityBadgeHandle
-	return AEM_UIKit.createChamferedAbilityBadge(monsterAbilityTray, {
-		name = badgeName,
-		parent = monsterAbilityTray,
-		position = UDim2.fromOffset((idx - 1) * 98, 0),
-		sizePx = 50,
-		glyph = glyph,
-		label = label,
-		keybind = keybind,
-		clickable = false,
-		zIndex = 13,
-	})
-end
-
-local mLeapBadge = makeMonsterBadge(1, "MonsterLeapBadge", "LEAP", AEM_UIKit.SKILL_ID_TO_GLYPH.LeapSmash, "1")
-local mChargeBadge = makeMonsterBadge(2, "MonsterChargeBadge", "CHARGE", AEM_UIKit.SKILL_ID_TO_GLYPH.FeralCharge, "2")
-local mAcidBadge = makeMonsterBadge(3, "MonsterAcidBadge", "ACID", AEM_UIKit.SKILL_ID_TO_GLYPH.AcidBreath, "3")
-local mSmellBadge = makeMonsterBadge(4, "MonsterSmellBadge", "SMELL", AEM_UIKit.SKILL_ID_TO_GLYPH.Smell, "Q")
-local mEatBadge = makeMonsterBadge(5, "MonsterEatBadge", "DEVOUR", AEM_UIKit.SKILL_ID_TO_GLYPH.EatPrey, "E")
-local mEvolveBadge = makeMonsterBadge(6, "MonsterEvolveBadge", "EVOLVE", AEM_UIKit.SKILL_ID_TO_GLYPH.EvolveStage, "V")
-local mStealthBadge = makeMonsterBadge(7, "MonsterStealthBadge", "STEALTH", AEM_UIKit.SKILL_ID_TO_GLYPH.Stealth, "CTRL")
-local mClimbBadge = makeMonsterBadge(8, "MonsterClimbBadge", "CLIMB", "climb", "SPC")
+local MonsterFieldDeck = require(ReplicatedStorage:WaitForChild("MonsterFieldDeck"))
+local fieldSlots = MonsterFieldDeck.mount(monsterHudRoot, monsterBiometrics, getHudScale)
 
 -- ============================================================================
 -- 3) TELAS DE FIM DE PARTIDA (F11: KAIROS-09 DOSSIERS + REWARDS)
@@ -2482,7 +2457,7 @@ local function computeTopStackTargets(): (number, number, number)
 
 	if monsterHudRoot.Visible then
 		monsterTopBar.Position = UDim2.new(0.5, 0, 0, nextY)
-		nextY += 26 + 4
+		nextY += 38 + 4
 	elseif hunterHudRoot.Visible and compassBar.Visible then
 		compassBar.Position = UDim2.new(0.5, 0, 0, nextY)
 		nextY += 24 + 4
@@ -2566,7 +2541,7 @@ local function repositionTopStack(force: boolean?): ()
 end
 
 local function updateBossHealthBar(): ()
-	local canShow = (hunterHudRoot.Visible or monsterHudRoot.Visible) and cachedMatchState ~= "PostMatch"
+	local canShow = hunterHudRoot.Visible and cachedMatchState ~= "PostMatch"
 	local mModel = if canShow then findMonsterModel(true) else nil
 	local wasVisible = bossHealthBar.root.Visible
 
@@ -3066,7 +3041,7 @@ local function refreshLocalHUD(): ()
 		lastKnownHunterHP = nil
 
 		local stage = math.clamp(math.floor(getNumberAttr(char, "Stage", 1)), 1, 3)
-		monsterStageBadge.Text = string.format("BIOMASS // STAGE %s", string.rep("I", stage))
+		monsterStageBadge.Text = string.format("ESTÁGIO %s", string.rep("I", stage))
 
 		local energy = math.clamp(getNumberAttr(char, "EvolutionEnergy", 0), 0, CONFIG.DefaultMaxEvolution)
 		local pct = math.floor(energy + 0.5)
@@ -3095,7 +3070,9 @@ local function refreshLocalHUD(): ()
 			monsterChannelKind = ""
 			monsterEvolveBanner.Visible = true
 			monsterChannelBar.root.Visible = false
-			monsterEvolvePrompt.Text = "EVOLUTION MATRIX READY  ·  HOLD [V] IN ISOLATION"
+			local near = getBoolAttr(char, "NearEvolutionNest")
+			local distance = math.round(getNumberAttr(char, "NearestNestDist", 0))
+			monsterEvolvePrompt.Text = if near then "NO NINHO  ·  SEGURE EVOLUIR POR 5 s" elseif distance>0 then string.format("PROCURE UM NINHO  ·  %d studs",distance) else "PROCURE UM NINHO"
 		else
 			monsterChannelKind = ""
 			monsterEvolveBanner.Visible = false
@@ -3389,6 +3366,8 @@ local function onLocalCharacterAdded(character: Model): ()
 		"IsEating",
 		"IsEvolving",
 		"IsStealth",
+		"NearEvolutionNest",
+		"NearestNestDist",
 		"Stamina",
 		"MaxStamina",
 		"JetpackFuel",
@@ -3480,9 +3459,9 @@ local function formatMatchStatus(state: string, seconds: number?, extraData: { [
 	elseif state == "RoleAssignment" then
 		return "ASSIGNING PROTOCOLS..."
 	elseif state == "MonsterHeadStart" then
-		return "SPECIMEN HEAD START // " .. formatTimerMMSS(seconds)
+		return "VANTAGEM DO MONSTRO  ·  " .. formatTimerMMSS(seconds)
 	elseif state == "ActiveHunt" then
-		return "CONTAINMENT HUNT // " .. formatTimerMMSS(seconds)
+		return "CAÇA  ·  " .. formatTimerMMSS(seconds)
 	elseif state == "PostMatch" then
 		local winner = if extraData ~= nil and typeof(extraData.winner) == "string" then extraData.winner else nil
 		local tag = if winner == "Monster" then "CONTAINMENT BREACH" elseif winner == "Hunters" then "SPECIMEN CLEANSED" else "SESSION CLOSED"
@@ -3850,7 +3829,7 @@ table.insert(globalConnections, Workspace.ChildAdded:Connect(function(child: Ins
 	if hunterHudRoot.Visible and (child.Name == "MonsterImpact" or child.Name == "PulsoOlfativo" or child.Name == "GullScatterBeacon") and child:IsA("BasePart") then
 		Radar.emitWave((child :: BasePart).Position, AEM_UIKit.BOSS_CRIMSON)
 	elseif monsterHudRoot.Visible and child.Name == "PulsoOlfativo" and child:IsA("BasePart") then
-		monsterCooldownEnds.Smell = os.clock() + 8
+		monsterCooldownEnds.Smell = os.clock() + MonsterFieldDeck.SmellCooldown
 	elseif child:IsA("Model") and Players:GetPlayerFromCharacter(child) == nil and getStringAttr(child, "Role") == "Monster" then
 		cachedWorkspaceMonsterDummy = child
 		updateBossHealthBar()
@@ -4081,59 +4060,61 @@ do
 	end
 
 	if monsterHudRoot.Visible and char ~= nil then
-		local function updateMonsterCdBadge(badge: AEM_UIKit.ChamferedAbilityBadgeHandle, endAt: number, totalCd: number, reqStam: number, curStam: number)
+		local function updateMonsterCdBadge(badge: MonsterFieldDeck.Slot, endAt: number, totalCd: number, reqStam: number, curStam: number)
 			local rem = endAt - now
 			if rem > 0.1 then
-				badge.setState(string.format("%ds", math.ceil(rem)), math.clamp(1 - rem / math.max(1, totalCd), 0, 1), false)
+				badge.setState(string.format("%d s", math.ceil(rem)), math.clamp(1 - rem / math.max(1, totalCd), 0, 1), false)
 			elseif reqStam > 0 and curStam < reqStam then
-				badge.setState("LOW", math.clamp(curStam / reqStam, 0, 1), false)
+				badge.setState("Vigor", math.clamp(curStam / reqStam, 0, 1), false)
 			else
-				badge.setState("READY", 1, true)
+				badge.setState("Pronta", 1, true)
 			end
 		end
 
+		fieldSlots.ClawSlash.setState(if getStringAttr(char,"MonsterAction")=="ClawSlash" then "Ativa" else "Pronta",1,true)
 		local mStam = math.max(0, getNumberAttr(char, "Stamina", 0))
-		updateMonsterCdBadge(mLeapBadge, monsterCooldownEnds.LeapSmash, 6, 22, mStam)
-		updateMonsterCdBadge(mChargeBadge, monsterCooldownEnds.FeralCharge, 8, 30, mStam)
-		updateMonsterCdBadge(mAcidBadge, monsterCooldownEnds.AcidBreath, 9, 0, mStam)
-		updateMonsterCdBadge(mSmellBadge, monsterCooldownEnds.Smell, 8, 0, mStam)
+		updateMonsterCdBadge(fieldSlots.LeapSmash, monsterCooldownEnds.LeapSmash, 6, 22, mStam)
+		updateMonsterCdBadge(fieldSlots.FeralCharge, monsterCooldownEnds.FeralCharge, 8, 30, mStam)
+		updateMonsterCdBadge(fieldSlots.AcidBreath, monsterCooldownEnds.AcidBreath, 9, 0, mStam)
+		updateMonsterCdBadge(fieldSlots.Smell, monsterCooldownEnds.Smell, MonsterFieldDeck.SmellCooldown, 0, mStam)
 
 		if getBoolAttr(char, "IsEating") then
 			local elapsed = math.min(2.5, now - monsterChannelStartedAt)
-			mEatBadge.setState("ACTIVE", math.clamp(elapsed / 2.5, 0, 1), true)
+			fieldSlots.Eat.setState("Ativa", math.clamp(elapsed / 2.5, 0, 1), true)
 		else
-			mEatBadge.setState("HOLD", 1, true)
+			fieldSlots.Eat.setState("Segure", 1, true)
 		end
 
 		local mStage = math.clamp(math.floor(getNumberAttr(char, "Stage", 1)), 1, 3)
 		local mEnergy = math.clamp(getNumberAttr(char, "EvolutionEnergy", 0), 0, 100)
 		if mStage >= 3 then
-			mEvolveBadge.setState("MAX", 1, false)
+			fieldSlots.Evolve.setState("Máximo", 1, false)
 		elseif getBoolAttr(char, "IsEvolving") then
 			local elapsed = math.min(5.0, now - monsterChannelStartedAt)
-			mEvolveBadge.setState("ACTIVE", math.clamp(elapsed / 5.0, 0, 1), true)
+			fieldSlots.Evolve.setState("Ativa", math.clamp(elapsed / 5.0, 0, 1), true)
 		elseif mEnergy >= 100 then
-			mEvolveBadge.setState("READY", 1, true)
+			local near = getBoolAttr(char,"NearEvolutionNest")
+			fieldSlots.Evolve.setState(if near then "Segure" else "Ninho", 1, near)
 		else
-			mEvolveBadge.setState(string.format("%d%%", math.floor(mEnergy)), math.clamp(mEnergy / 100, 0, 1), false)
+			fieldSlots.Evolve.setState(string.format("%d%%", math.floor(mEnergy)), math.clamp(mEnergy / 100, 0, 1), false)
 		end
 
 		if getBoolAttr(char, "IsStealth") then
-			mStealthBadge.setState("ACTIVE", 1, true)
+			fieldSlots.Stealth.setState("Ativa", 1, true)
 		else
-			mStealthBadge.setState("READY", 1, true)
+			fieldSlots.Stealth.setState("Segure", 1, true)
 		end
 
 		local mHum = char:FindFirstChildOfClass("Humanoid")
 		local mAction = getStringAttr(char, "MonsterAction")
 		if mAction == "Climb" then
-			mClimbBadge.setState("ACTIVE", 1, true)
+			fieldSlots.Climb.setState("Ativa", 1, true)
 		elseif mStam < 14 then
-			mClimbBadge.setState("LOW", math.clamp(mStam / 14, 0, 1), false)
+			fieldSlots.Climb.setState("Vigor", math.clamp(mStam / 14, 0, 1), false)
 		elseif mHum ~= nil and mHum.FloorMaterial == Enum.Material.Air then
-			mClimbBadge.setState("READY", 1, true)
+			fieldSlots.Climb.setState("Pronta", 1, true)
 		else
-			mClimbBadge.setState("AIR", 1, true)
+			fieldSlots.Climb.setState("No ar", 1, true)
 		end
 	end
 
@@ -4189,4 +4170,3 @@ screenGui.Destroying:Connect(function()
 		removeDownedBillboard(player)
 	end
 end)
-

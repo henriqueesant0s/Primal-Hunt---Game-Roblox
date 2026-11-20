@@ -370,7 +370,7 @@ local function configureWorldLighting(): ()
 	Lighting.ColorShift_Top = Color3.fromRGB(245, 210, 150)
 	Lighting.ColorShift_Bottom = Color3.fromRGB(15, 18, 20)
 	Lighting.ShadowSoftness = 0.25
-	Lighting.EnvironmentDiffuseScale = 0.36
+	Lighting.EnvironmentDiffuseScale = 0.58
 	Lighting.EnvironmentSpecularScale = 0.92
 
 	local sky = Lighting:FindFirstChildOfClass("Sky")
@@ -430,16 +430,16 @@ local function configureWorldLighting(): ()
 
 	local terrain = Workspace.Terrain
 	terrain.WaterColor = Color3.fromRGB(42, 48, 38)
-	terrain.WaterReflectance = 0.85
+	terrain.WaterReflectance = 0.42
 	terrain.WaterTransparency = 0.35
 	terrain.WaterWaveSize = 0.08
 	terrain.WaterWaveSpeed = 4
 	pcall(function()
-		terrain:SetMaterialColor(Enum.Material.Basalt, Color3.fromRGB(18, 20, 23))
-		terrain:SetMaterialColor(Enum.Material.Mud, Color3.fromRGB(22, 24, 21))
-		terrain:SetMaterialColor(Enum.Material.Ground, Color3.fromRGB(32, 34, 29))
-		terrain:SetMaterialColor(Enum.Material.Rock, Color3.fromRGB(28, 30, 32))
-		terrain:SetMaterialColor(Enum.Material.Slate, Color3.fromRGB(30, 32, 34))
+		terrain:SetMaterialColor(Enum.Material.Basalt, Color3.fromRGB(53, 58, 65))
+		terrain:SetMaterialColor(Enum.Material.Mud, Color3.fromRGB(65, 59, 49))
+		terrain:SetMaterialColor(Enum.Material.Ground, Color3.fromRGB(82, 77, 61))
+		terrain:SetMaterialColor(Enum.Material.Rock, Color3.fromRGB(79, 81, 82))
+		terrain:SetMaterialColor(Enum.Material.Slate, Color3.fromRGB(64, 71, 74))
 	end)
 end
 
@@ -2938,9 +2938,24 @@ local function buildWorld(): ()
 		)
 	end
 
+	local hangar = lobbySpawn.Parent
+	local lobbyAssets = ServerStorage:FindFirstChild("LobbyAssets")
+	local scanner = if lobbyAssets then lobbyAssets:FindFirstChild("ContainmentScanner") else nil
+	if hangar and not hangar:FindFirstChild("ContainmentScanner") and scanner and scanner:IsA("Model") then
+		local copy = scanner:Clone()
+		copy:PivotTo(CFrame.new(lobbySpawn.Position + Vector3.new(-13,1.63,-36)))
+		copy.Parent = hangar
+	end
+	local finalMap = Workspace:FindFirstChild("Map")
+	local finalEco = Workspace:FindFirstChild("HuntingMap_Ecosystem")
+	if finalMap and finalEco then
+		local grounding = require(script.Parent.SpawnGrounding)
+		for _, message in grounding.resolve(finalMap,finalEco,true) do
+			if string.find(message,"SEM PISO",1,true) then warn(message) end
+		end
+	end
 	relocateLobbyPlayers(lobbySpawn)
 	Workspace:SetAttribute("WorldReady", true)
 end
 
 buildWorld()
-

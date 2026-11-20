@@ -1,6 +1,7 @@
 --!strict
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
+local Motion = require(game:GetService("ReplicatedStorage"):WaitForChild("AbyssCombatMotion"))
 
 local activePrey = workspace:WaitForChild("ActivePrey")
 local localPlayer = Players.LocalPlayer
@@ -12,8 +13,6 @@ local MOTOR_NAMES = {
 type FaunaAnimState = {
 	phase: number,
 	seed: number,
-	lastAttackCount: number,
-	attackUntil: number,
 	motors: { [string]: Motor6D },
 	baseC0s: { [string]: CFrame },
 	poses: { [string]: CFrame },
@@ -42,11 +41,12 @@ local function initAnimalState(m: Model): FaunaAnimState?
 			poses[mName] = CFrame.identity
 		end
 	end
+	for _, name in MOTOR_NAMES do
+		if not motors[name] then return nil end
+	end
 	local st: FaunaAnimState = {
 		phase = math.random() * math.pi * 2,
 		seed = math.random() * 10,
-		lastAttackCount = tonumber(m:GetAttribute("AttackCount")) or 0,
-		attackUntil = 0,
 		motors = motors,
 		baseC0s = baseC0s,
 		poses = poses,
@@ -71,6 +71,7 @@ RunService.RenderStepped:Connect(function(dt: number)
 		else Vector3.zero
 
 	local now = os.clock()
+	local serverNow = workspace:GetServerTimeNow()
 
 	for _, animal in ipairs(activePrey:GetChildren()) do
 		if not animal:IsA("Model") or not animal.PrimaryPart then
@@ -90,12 +91,8 @@ RunService.RenderStepped:Connect(function(dt: number)
 		local speed = tonumber(animal:GetAttribute("MoveSpeed")) or 0
 		local tier = tonumber(animal:GetAttribute("PreyTier")) or 1
 		local sp = tostring(animal:GetAttribute("Species") or "")
-		local atkCount = tonumber(animal:GetAttribute("AttackCount")) or 0
-
-		if atkCount > st.lastAttackCount then
-			st.lastAttackCount = atkCount
-			st.attackUntil = now + 0.65
-		end
+		local impact = tonumber(animal:GetAttribute("AttackImpactAt")) or -math.huge
+		local attackPhase = 1 + (serverNow-impact)/Motion.windup(sp)
 
 		local target: { [string]: CFrame } = {}
 		for _, mName in ipairs(MOTOR_NAMES) do
@@ -111,46 +108,16 @@ RunService.RenderStepped:Connect(function(dt: number)
 			target.LegBLMotor = rot(34, 0, -22)
 			target.LegBRMotor = rot(-30, 0, 26)
 			target.TailMotor = rot(-18, 22, 0)
-		elseif now < st.attackUntil then
-			blendRate = 22
-			local u = 1 - ((st.attackUntil - now) / 0.65)
-			local lunge = math.sin(u * math.pi)
-			if sp == "AcidSpitterDrake" then
-				target.HeadMotor = rot(if u < 0.35 then (34 * lunge) else (-44 * lunge), 0, 0)
-				target.LegFLMotor = rot(28 * lunge, 14, -18)
-				target.LegFRMotor = rot(28 * lunge, -14, 18)
-				target.LegBLMotor = rot(-18 * lunge, 0, 0)
-				target.LegBRMotor = rot(-18 * lunge, 0, 0)
-				target.TailMotor = rot(32 * lunge, math.sin(now * 24) * 24, 0)
-			elseif sp == "BiolumMantisStalker" then
-				target.HeadMotor = rot(-24 * lunge, math.sin(now * 28) * 14, 0)
-				target.LegFLMotor = rot(if u < 0.3 then (-42 * lunge) else (68 * lunge), 24, -18)
-				target.LegFRMotor = rot(if u < 0.3 then (-42 * lunge) else (68 * lunge), -24, 18)
-				target.LegBLMotor = rot(-22 * lunge, 0, -14)
-				target.LegBRMotor = rot(-22 * lunge, 0, 14)
-				target.TailMotor = rot(28 * lunge, 0, 0)
-			elseif sp == "SporeCrawler" then
-				target.HeadMotor = rot(-18 * lunge, 0, 0)
-				target.LegFLMotor = rot(16 * lunge, 18, -32 * lunge)
-				target.LegFRMotor = rot(16 * lunge, -18, 32 * lunge)
-				target.LegBLMotor = rot(-16 * lunge, -14, -26 * lunge)
-				target.LegBRMotor = rot(-16 * lunge, 14, 26 * lunge)
-				target.TailMotor = rot(38 * lunge, 0, 0)
-			elseif sp == "SwampStalkerRaptor" then
-				target.HeadMotor = rot(if u < 0.35 then (-28 * lunge) else (36 * lunge), 0, 0)
-				target.LegFLMotor = rot(52 * lunge, -18, 12)
-				target.LegFRMotor = rot(52 * lunge, 18, -12)
-				target.LegBLMotor = rot(-24 * lunge, 0, 0)
-				target.LegBRMotor = rot(-24 * lunge, 0, 0)
-				target.TailMotor = rot(-22 * lunge, math.sin(now * 20) * 16, 0)
-			else
-				target.HeadMotor = rot(if u < 0.4 then (24 * lunge) else (-32 * lunge), 0, 0)
-				target.LegFLMotor = rot(48 * lunge, 10, -14)
-				target.LegFRMotor = rot(48 * lunge, -10, 14)
-				target.LegBLMotor = rot(-28 * lunge, 0, 0)
-				target.LegBRMotor = rot(-28 * lunge, 0, 0)
-				target.TailMotor = rot(24 * lunge, math.sin(now * 16) * 14, 0)
-			end
+		elseif attackPhase>=0 and attackPhase<1.95 then
+			blendRate = 28
+			local head,forelimbs,tail = Motion.fauna(sp,attackPhase)
+			local spread = if sp=="BiolumMantisStalker" then 0.72 else 0.36
+			target.HeadMotor = rot(head, head*.11,0)
+			target.LegFLMotor = rot(forelimbs*1.45,forelimbs*spread,-math.abs(forelimbs)*.36)
+			target.LegFRMotor = rot(forelimbs*1.45,-forelimbs*spread,math.abs(forelimbs)*.36)
+			target.LegBLMotor = rot(-forelimbs*.70,0,0)
+			target.LegBRMotor = rot(-forelimbs*.70,0,0)
+			target.TailMotor = rot(tail,tail*.55,0)
 		elseif speed > 0.4 then
 			local freqMul = if sp == "ObsidianCragback" or sp == "HornedCeratopsBull" then 0.72
 				elseif sp == "SporeCrawler" or sp == "SwampStalkerRaptor" then 1.25
@@ -217,7 +184,7 @@ RunService.RenderStepped:Connect(function(dt: number)
 			target.LegFRMotor = rot(-b * 1.8, 0, 0)
 		end
 
-		local alpha = math.clamp(dt * blendRate, 0, 1)
+		local alpha = 1 - math.exp(-dt * blendRate)
 		for _, mName in ipairs(MOTOR_NAMES) do
 			local mot = st.motors[mName]
 			local baseC0 = st.baseC0s[mName]
@@ -231,5 +198,4 @@ RunService.RenderStepped:Connect(function(dt: number)
 		end
 	end
 end)
-
 
